@@ -1,0 +1,15 @@
+MOUSEKEY_ENABLE = yes
+RGBLIGHT_ENABLE = no
+OLED_ENABLE     = yes
+OLED_DRIVER     = SSD1306
+LTO_ENABLE      = yes
+
+AUTO_SHIFT_ENABLE = yes
+TAP_DANCE_ENABLE = yes
+COMBO_ENABLE = yes
+VPATH += keyboards/gboards
+
+# Squeezing
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no
+MAGIC_ENABLE = no
