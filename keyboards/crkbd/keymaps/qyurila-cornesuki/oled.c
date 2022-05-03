@@ -1,38 +1,46 @@
-#pragma once
+#include QMK_KEYBOARD_H
+#include <stdio.h>
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (!is_keyboard_master()) {
-        return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+    if (is_keyboard_master()) {
+        return OLED_ROTATION_270;  // flips the display 180 degrees if offhand
     }
-    return rotation;
+    return OLED_ROTATION_180;
 }
 
-#define L_BASE 0
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8
+#define _BASE 0
+#define _SWAP 1
+#define _GAMING 2
+#define _ARROW 3
+
+#define _EXTEND 4
+#define _MOUSE 5
+#define _MEDIA 6
+#define _SYMBOL 8
+#define _NUMPAD 9
 
 void oled_render_layer_state(void) {
-    oled_write_P(PSTR("Layer: "), false);
-    switch (layer_state) {
-        case L_BASE:
-            oled_write_ln_P(PSTR("Default"), false);
+    oled_clear();
+    oled_write_P(PSTR("Layer"), false);
+    switch (get_highest_layer(layer_state)) {
+        case _BASE:
+            oled_write_ln_P(PSTR("-Def"), false);
             break;
-        case L_LOWER:
-            oled_write_ln_P(PSTR("Lower"), false);
+        case _GAMING:
+            oled_write_ln_P(PSTR("-Game"), false);
             break;
-        case L_RAISE:
-            oled_write_ln_P(PSTR("Raise"), false);
+        case _EXTEND:
+            oled_write_ln_P(PSTR("-Ext"), false);
             break;
-        case L_ADJUST:
-        case L_ADJUST|L_LOWER:
-        case L_ADJUST|L_RAISE:
-        case L_ADJUST|L_LOWER|L_RAISE:
-            oled_write_ln_P(PSTR("Adjust"), false);
+        case _SYMBOL:
+            oled_write_ln_P(PSTR("-Sym"), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("undef"), false);
             break;
     }
+    oled_write_ln_P(PSTR(""), false);
 }
-
 
 char keylog_str[24] = {};
 
@@ -56,7 +64,7 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
 
     // update keylog
     snprintf(
-        keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
+        keylog_str, sizeof(keylog_str), "%dx%d, k%2d:\n%c",
         record->event.key.row, record->event.key.col, keycode, name
     );
 }
@@ -77,10 +85,10 @@ void oled_render_logo(void) {
 
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_logo();
-    } else {
         oled_render_layer_state();
         oled_render_keylog();
+    } else {
+        oled_render_logo();
     }
     return false;
 }

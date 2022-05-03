@@ -1,5 +1,7 @@
 #include "keycodes.h"
 
+#define CM_COLN S(KC_P)
+
 COMB(we_LBRC,   KC_LBRC, KC_W,    KC_E)
 COMB(oi_RBRC,   KC_RBRC, KC_O,    KC_I)
 COMB(sd_LPRN,   KC_LPRN, C_ALT_S, C_SFT_D)
@@ -11,7 +13,7 @@ COMB(Dtk_RABK,  KC_RABK, KC_DOT,  C_SFT_K)
 
 COMB(df_UNDS,   KC_UNDS, C_SFT_D, C_CTL_F)
 COMB(kj_PMNS,   KC_PMNS, C_SFT_K, C_CTL_J)
-COMB(dv_COLN,   KC_COLN, C_SFT_D, KC_V)
+COMB(dv_COLN,   CM_COLN, C_SFT_D, KC_V)
 COMB(km_EQL,    KC_EQL,  C_SFT_K, KC_M)
 COMB(ef_PAST,   KC_PAST, KC_E,    C_CTL_F)
 COMB(ij_PPLS,   KC_PPLS, KC_I,    C_CTL_J)
