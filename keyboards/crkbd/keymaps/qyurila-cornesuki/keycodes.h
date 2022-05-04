@@ -1,6 +1,6 @@
 #pragma once
 
-// Custom Aliases
+// Custom
 // Home row Mod-Taps
 #define C_GUI_A LGUI_T(KC_A)
 #define C_ALT_S LALT_T(KC_S)
@@ -20,4 +20,5 @@
 #define C_ALT_8 RALT_T(KC_8)
 #define C_GUI_9 RGUI_T(KC_9)
 
+// One-Shot Mod
 #define OS_LSFT OSM(MOD_LSFT)

@@ -4,12 +4,14 @@ OLED_ENABLE     = yes
 OLED_DRIVER     = SSD1306
 LTO_ENABLE      = yes
 
+# CONSOLE_ENABLE    = yes
 # AUTO_SHIFT_ENABLE = yes
-# CONSOLE_ENABLE = yes
-TAP_DANCE_ENABLE = yes
-COMBO_ENABLE = yes
+# SWAP_HANDS_ENABLE = yes
+TAP_DANCE_ENABLE  = yes
+COMBO_ENABLE      = yes
+PROGRAMMABLE_BUTTON_ENABLE = yes
+
 VPATH += keyboards/gboards
-SWAP_HANDS_ENABLE = yes
 
 # Squeezing
 SPACE_CADET_ENABLE = no

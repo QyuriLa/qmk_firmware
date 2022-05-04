@@ -1,5 +1,40 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
+#include "layers.h"
+
+static const char PROGMEM layer_names[][6] = {
+    " Def ", " Swap", " Game", "Arrow",
+    " Sym ", " Num ", " Func", " Lock",
+    " Ext ", "Mouse", "Media", "     ",
+};
+
+static const char PROGMEM layer_icons[][11] = {
+    [_BASE] = {
+        0x00, 0x85, 0x86, 0x87, 0x00,
+        0x00, 0xA5, 0xA6, 0xA7, 0x00, 0x00
+    },
+    [_NUMPAD] = {
+        0x00, 0x88, 0x89, 0x8A, 0x00,
+        0x00, 0xA8, 0xA9, 0xAA, 0x00, 0x00
+    },
+    [_MOUSE] = {
+        0x00, 0x8B, 0x8C, 0x8D, 0x00,
+        0x00, 0xAB, 0xAC, 0xAD, 0x00, 0x00
+    },
+    [_LOCK] = {
+        0x00, 0x8E, 0x8F, 0x90, 0x00,
+        0x00, 0xAE, 0xAF, 0xB0, 0x00, 0x00
+    },
+    [_GAMING] = {
+        0x00, 0xC5, 0xC6, 0xC7, 0x00,
+        0x00, 0xE5, 0xE6, 0xE7, 0x00, 0x00
+    },
+    [_ARROW] = {
+        0x00, 0xC8, 0xC9, 0xCA, 0x00,
+        0x00, 0xE8, 0xE9, 0xEA, 0x00, 0x00
+    },
+};
+
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_master()) {
@@ -8,39 +43,29 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return OLED_ROTATION_180;
 }
 
-#define _BASE 0
-#define _SWAP 1
-#define _GAMING 2
-#define _ARROW 3
 
-#define _EXTEND 4
-#define _MOUSE 5
-#define _MEDIA 6
-#define _SYMBOL 8
-#define _NUMPAD 9
-
-void oled_render_layer_state(void) {
-    oled_clear();
-    oled_write_P(PSTR("Layer"), false);
-    switch (get_highest_layer(layer_state)) {
-        case _BASE:
-            oled_write_ln_P(PSTR("-Def"), false);
-            break;
-        case _GAMING:
-            oled_write_ln_P(PSTR("-Game"), false);
-            break;
-        case _EXTEND:
-            oled_write_ln_P(PSTR("-Ext"), false);
-            break;
-        case _SYMBOL:
-            oled_write_ln_P(PSTR("-Sym"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("undef"), false);
-            break;
+void write_highest_layer(uint8_t line) {
+    oled_set_cursor(0, line);
+    uint8_t layer = get_highest_layer(layer_state);
+    if (layer <= sizeof(layer_names) / sizeof(layer_names[0])) {
+        oled_write_P(layer_names[layer], false);
+    } else {
+        oled_write_P(PSTR("undef"), false);
     }
-    oled_write_ln_P(PSTR(""), false);
 }
+
+
+void render_layer_icon(uint8_t line) {
+    oled_set_cursor(0, line);
+    uint32_t icons_len = sizeof(layer_icons) / sizeof(layer_icons[0]);
+    for (uint32_t i = icons_len; i >= 0; i--) {
+        if (layer_icons[i] && (i & layer_state)) {
+            oled_write_P(layer_icons[i], false);
+            break;
+        }
+    }
+}
+
 
 char keylog_str[24] = {};
 
@@ -69,26 +94,35 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
     );
 }
 
-void oled_render_keylog(void) {
+void write_keylog(uint8_t line) {
+    oled_set_cursor(0, line);
     oled_write(keylog_str, false);
 }
 
 
-void oled_render_logo(void) {
+void render_logo(uint8_t line) {
+    oled_set_cursor(0, line);
     static const char PROGMEM crkbd_logo[] = {
-        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
-        0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4,
-        0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
-        0};
-    oled_write_P(crkbd_logo, false);
+        0x80, 0x81, 0x82, 0x83, 0x84,
+        0xA0, 0xA1, 0xA2, 0xA3, 0xA4,
+        0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0x00
+    };
+    oled_write_ln_P(crkbd_logo, false);
 }
+
 
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_layer_state();
-        oled_render_keylog();
-    } else {
-        oled_render_logo();
+        render_logo(0);
+        // write_highest_layer(4);
+        // render_layer_icon(6);
+        // write_keylog(10);
     }
     return false;
 }
+
+/*
+qmk compile
+cp crkbd_rev1_qyurila-cornesuki.hex /mnt/d/Keyboard
+
+*/
