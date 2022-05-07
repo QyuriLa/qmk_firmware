@@ -21,8 +21,10 @@
 #define COMBO_VARIABLE_LEN
 #define EXTRA_SHORT_COMBOS
 #define COMBO_TERM 20
+#define COMBO_MUST_TAP_PER_COMBO
+#define COMBO_SHOULD_TRIGGER
 
+// etc.
 #define MK_3_SPEED
-
 
 // Squeezing
