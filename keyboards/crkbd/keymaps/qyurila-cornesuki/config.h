@@ -8,6 +8,7 @@
 // Tap Hold
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 
@@ -25,6 +26,6 @@
 #define COMBO_SHOULD_TRIGGER
 
 // etc.
-#define MK_3_SPEED
+#define MK_COMBINED
 
 // Squeezing

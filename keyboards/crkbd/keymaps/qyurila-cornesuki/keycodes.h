@@ -1,24 +1,23 @@
 #pragma once
 
-// Custom
 // Home row Mod-Taps
-#define C_GUI_A LGUI_T(KC_A)
-#define C_ALT_S LALT_T(KC_S)
-#define C_SFT_D LSFT_T(KC_D)
-#define C_CTL_F LCTL_T(KC_F)
-#define C_CTL_J RCTL_T(KC_J)
-#define C_SFT_K RSFT_T(KC_K)
-#define C_ALT_L RALT_T(KC_L)
-#define C_GUISC RGUI_T(KC_SCLN)
+#define M_GUI_A LGUI_T(KC_A)
+#define M_ALT_R LALT_T(KC_R)
+#define M_SFT_S LSFT_T(KC_S)
+#define M_CTL_T LCTL_T(KC_T)
+#define M_CTL_N LCTL_T(KC_N)
+#define M_SFT_E LSFT_T(KC_E)
+#define M_ALT_I LALT_T(KC_I)
+#define M_GUI_O LGUI_T(KC_O)
 
-#define C_GUI_4 LGUI_T(KC_4)
-#define C_ALT_3 LALT_T(KC_3)
-#define C_SFT_2 LSFT_T(KC_2)
-#define C_CTL_1 LCTL_T(KC_1)
-#define C_CTL_0 RCTL_T(KC_0)
-#define C_SFT_7 RSFT_T(KC_7)
-#define C_ALT_8 RALT_T(KC_8)
-#define C_GUI_9 RGUI_T(KC_9)
+#define M_GUI_4 LGUI_T(KC_4)
+#define M_ALT_3 LALT_T(KC_3)
+#define M_SFT_2 LSFT_T(KC_2)
+#define M_CTL_1 LCTL_T(KC_1)
+#define M_CTL_0 LCTL_T(KC_0)
+#define M_SFT_7 LSFT_T(KC_7)
+#define M_ALT_8 LALT_T(KC_8)
+#define M_GUI_9 LGUI_T(KC_9)
 
 // One-Shot Mod
 #define OS_LSFT OSM(MOD_LSFT)
