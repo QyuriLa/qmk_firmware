@@ -21,3 +21,7 @@
 
 // One-Shot Mod
 #define OS_LSFT OSM(MOD_LSFT)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_LCTL OSM(MOD_LCTL)
+
+#define L_TO_BS TO(_BASE)

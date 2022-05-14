@@ -12,16 +12,15 @@ void write_highest_layer(uint8_t line) {
 
     switch (get_highest_layer(layer_state)) {
         case _BASE:   oled_write_P(PSTR(" Base"), false); break;
-        case _SWAP:   oled_write_P(PSTR(" Swap"), false); break;
+        case _UTIL:   oled_write_P(PSTR(" Util"), false); break;
         case _GAMING: oled_write_P(PSTR(" Game"), false); break;
         case _ARROW:  oled_write_P(PSTR("Arrow"), false); break;
-        case _SYMBOL: oled_write_P(PSTR(" Sym "), false); break;
-        case _NUMPAD: oled_write_P(PSTR(" Num "), false); break;
-        case _FUNC:   oled_write_P(PSTR(" Func"), false); break;
-        case _LOCK:   oled_write_P(PSTR(" Lock"), false); break;
+        case _NUMBER: oled_write_P(PSTR(" Num "), false); break;
+        case _NUMPAD: oled_write_P(PSTR(" NPad"), false); break;
         case _EXTEND: oled_write_P(PSTR(" Ext "), false); break;
         case _MOUSE:  oled_write_P(PSTR("Mouse"), false); break;
-        case _MEDIA:  oled_write_P(PSTR("Media"), false); break;
+        case _FUNC:   oled_write_P(PSTR(" Func"), false); break;
+        case _LOCK:   oled_write_P(PSTR(" Lock"), false); break;
         default:      oled_write_P(PSTR("     "), false); break;
     }
 }
@@ -48,6 +47,7 @@ void render_layer_icon(uint8_t line) {
     uint8_t layer = 0;
     if      (layer_state_is(_ARROW))  { layer = 5; }
     else if (layer_state_is(_GAMING)) { layer = 4; }
+    else if (layer_state_is(_UTIL)) { layer = 4; }
     else if (layer_state_is(_LOCK))   { layer = 3; }
     else if (layer_state_is(_MOUSE))  { layer = 2; }
     else if (layer_state_is(_NUMPAD)) { layer = 1; }
