@@ -19,9 +19,22 @@
 #define M_ALT_8 LALT_T(KC_8)
 #define M_GUI_9 LGUI_T(KC_9)
 
+// Swap Hands
+#define SH_GRV  SH_T(KC_GRV)
+#define SH_QUOT SH_T(KC_QUOT)
+
 // One-Shot Mod
 #define OS_LSFT OSM(MOD_LSFT)
 #define OS_LALT OSM(MOD_LALT)
 #define OS_LCTL OSM(MOD_LCTL)
 
 #define L_TO_BS TO(_BASE)
+
+// Layer Toggle
+#define L_TG_UT TG(_UTIL)
+#define L_TG_GM TG(_GAMING)
+#define L_TG_AR TG(_ARROW)
+#define L_TG_NO TG(_NUMBER)
+#define L_TG_NP TG(_NUMPAD)
+#define L_TG_MS TG(_MOUSE)
+#define L_TG_LK TG(_LOCK)

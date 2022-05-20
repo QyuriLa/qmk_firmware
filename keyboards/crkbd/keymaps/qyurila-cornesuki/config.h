@@ -6,15 +6,12 @@
 // Tap Hold
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD_PER_KEY
-//   #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-#define IGNORE_MOD_TAP_INTERRUPT
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define TAPPING_FORCE_HOLD
 
 // Auto Shift
 #define AUTO_SHIFT_TIMEOUT 150
-#define RETRO_SHIFT 500
-// #define NO_AUTO_SHIFT_SPECIAL
-// #define NO_AUTO_SHIFT_ALPHA
+#define RETRO_SHIFT 300
 
 // Combos
 #define COMBO_VARIABLE_LEN
@@ -24,7 +21,8 @@
 #define COMBO_SHOULD_TRIGGER
 
 // etc.
-#define MK_COMBINED
+#define MK_3_SPEED
+#define MK_MOMENTARY_ACCEL
 
 // Squeezing
 #define LAYER_STATE_16BIT

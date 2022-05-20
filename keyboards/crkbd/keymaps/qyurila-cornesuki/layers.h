@@ -2,7 +2,7 @@
 
 #define _BASE 0
 #define _UTIL 1
-#define _GAMING 2
+#define _GAME 2
 #define _ARROW 3
 
 #define _NUMBER 4

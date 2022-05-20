@@ -18,12 +18,11 @@ COMB(he_COLN,   KC_COLN,   KC_H,    M_SFT_E         )
 
 COMB(rz_PIPE,   KC_PIPE,                     M_ALT_R, KC_Z   )
 COMB(iS_BSLS,   KC_BSLS,                     M_ALT_I, KC_SLSH)
-COMB(ar_ESC,    KC_ESC,                      M_ALT_R, M_GUI_A)
+COMB(qT_TILD,   KC_TILD,                     KC_Q,    SH_GRV)
+COMB(BQ_DQT,    KC_DQT,                      KC_BSLS, SH_QUOT)
+COMB(ar_ENT,    KC_ENT,                      M_ALT_R, M_GUI_A)
 COMB(oi_BSPC,   KC_BSPC,                     M_ALT_I, M_GUI_O)
 
-COMB(UTIL_ENT,  KC_ENT,    KC_D,    KC_C                  )
-COMB(UTIL_SPC,  KC_SPC,             KC_C,    KC_X         )
-COMB(UTIL_BSPC, KC_BSPC,                     KC_X,    KC_Z)
-
-COMB(ESC_BASE,  L_TO_BS,   KC_ESC,  KC_Q)
-COMB(BSP_BASE,  L_TO_BS,   KC_BSPC, KC_SCLN)
+COMB(ESCq_UTIL,  TG(_UTIL), KC_ESC,  KC_Q   )
+COMB(BSPB_GAME,  TG(_GAME), KC_BSPC, KC_BSLS)
+COMB(BSPS_GAME,  TG(_GAME), KC_BSPC, KC_SCLN)
