@@ -9,7 +9,7 @@
 #define TAPPING_FORCE_HOLD
 
 // Auto Shift
-#define AUTO_SHIFT_TIMEOUT 125
+#define AUTO_SHIFT_TIMEOUT 135
 #define RETRO_SHIFT 300
 
 // Combos

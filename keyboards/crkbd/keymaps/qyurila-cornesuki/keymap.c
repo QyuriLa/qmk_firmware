@@ -1,6 +1,4 @@
 #include QMK_KEYBOARD_H
-#include <stdio.h>
-#include <keymap_korean.h>
 #include "oled.c"
 #include "layers.h"
 #include "keycodes.h"
@@ -34,11 +32,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______, _______,   _______, _______, _______
   ),
 
-
   [_NUMBER] = LAYOUT_split_3x6_3(
     OSM_SFT, XXXXXXX, KC_9,    KC_8,    KC_7,    XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     OSM_CTL, KC_DOT,  KC_6,    KC_5,    KC_4,    KC_0,      XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, L_TG_NP,
-    OSM_ALT, XXXXXXX, KC_3,    KC_2,    KC_1,    XXXXXXX,   XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX,
+    OSM_ALT, XXXXXXX, KC_3,    KC_2,    KC_1,    XXXXXXX,   XXXXXXX, XXXXXXX, KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
                                KC_DOT,  KC_0,    KC_TAB,    XXXXXXX, XXXXXXX, XXXXXXX
   ),
   [_NUMPAD] = LAYOUT_split_3x6_3(
@@ -48,17 +45,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                L_F_ESC, L_E_BSP, KC_TAB,    KC_PENT, KC_P0,   KC_DOT
   ),
 
-  [_EXTEND] = LAYOUT_split_3x6_3(                        // HANJ
+  [_EXTEND] = LAYOUT_split_3x6_3(                           // HANJ
     XXXXXXX, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX,   KC_RCTL, KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_NUM,
-    L_TG_MS, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_SCRL,
-    XXXXXXX, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V),   KC_PSCR, KC_BSPC, KC_CAPS, KC_INS,  KC_APP,  KC_PAUS,
+    L_TG_MS, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,   KC_APP,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_SCRL,
+    XXXXXXX, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V),   KC_PSCR, KC_BSPC, KC_CAPS, CAPSWRD, KC_INS,  KC_PAUS,
                                XXXXXXX, XXXXXXX, XXXXXXX,   KC_ENT,  KC_SPC,  KC_DEL
   ),
   [_MOUSE] = LAYOUT_split_3x6_3(
     KC_WHOM, KC_WH_U, KC_BTN4, KC_BTN1, KC_BTN5, XXXXXXX,   XXXXXXX, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, XXXXXXX,
     L_TG_MS, KC_WH_D, KC_LALT, KC_LSFT, KC_LCTL, KC_BTN1,   XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXXXXXX,
-    KC_LGUI, C(KC_Y), C(KC_X), C(KC_C), C(KC_V), C(KC_V),   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                               KC_BTN3, KC_BTN1, KC_BTN2,   XXXXXXX, XXXXXXX, XXXXXXX
+    KC_LGUI, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V),   C(KC_V), C(KC_Z), C(KC_C), C(KC_X), C(KC_Y), XXXXXXX,
+                               KC_BTN3, KC_BTN1, KC_BTN2,   KC_BTN2, KC_BTN1, KC_BTN3
   ),
 
   [_FUNC] = LAYOUT_split_3x6_3(
