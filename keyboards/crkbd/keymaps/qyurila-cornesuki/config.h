@@ -6,11 +6,10 @@
 // Tap Hold
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD_PER_KEY
-#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define TAPPING_FORCE_HOLD
 
 // Auto Shift
-#define AUTO_SHIFT_TIMEOUT 150
+#define AUTO_SHIFT_TIMEOUT 125
 #define RETRO_SHIFT 300
 
 // Combos
@@ -21,8 +20,8 @@
 #define COMBO_SHOULD_TRIGGER
 
 // etc.
-#define MK_3_SPEED
-#define MK_MOMENTARY_ACCEL
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 8
 
 // Squeezing
 #define LAYER_STATE_16BIT
