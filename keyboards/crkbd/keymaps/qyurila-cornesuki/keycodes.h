@@ -1,16 +1,13 @@
 #pragma once
 
 // Layer-Tap
-#define L_F_ESC LT(_FUNC,   KC_ESC)
-#define L_E_BSP LT(_EXTEND, KC_BSPC)
-#define L_M_TAB LT(_MOUSE,  KC_TAB)
-#define L_P_ENT LT(_NUMPAD, KC_ENT)
-#define L_N_SPC LT(_NUMBER, KC_SPC)
-#define L_F_KOR LT(_FUNC,   KC_RALT)
-
 #define L_F_DEL LT(_FUNC,   KC_DEL)
+#define L_E_ESC LT(_EXTEND, KC_ESC)
+#define L_N_TAB LT(_NUMBER,  KC_TAB)
+
 #define L_E_SPC LT(_EXTEND, KC_SPC)
 #define L_N_ENT LT(_NUMBER, KC_ENT)
+#define L_F_BSP LT(_FUNC,   KC_BSPC)
 
 // Layer Toggle
 #define L_TG_UT TG(_UTIL)
@@ -32,9 +29,12 @@
 #define M_ALT_I   LALT_T(KC_I)
 #define M_GUI_O   LGUI_T(KC_O)
 
+#define M_ALT_4   LALT_T(KC_4)
+#define M_SFT_5   LSFT_T(KC_5)
+#define M_CTL_6   LCTL_T(KC_6)
+
 // etc.
 #define CTL_GRV LCTL_T(KC_GRV)
-#define SFT_TAB LSFT_T(KC_TAB)
 
 // Swap Hands
 #define SH_GRV  SH_T(KC_GRV)
