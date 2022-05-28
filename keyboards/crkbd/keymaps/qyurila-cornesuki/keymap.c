@@ -7,21 +7,21 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
-    SH_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, SH_SCLN,
+    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
+    SH_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, SH_QUOT,
     KC_RALT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                               L_F_DEL, L_E_ESC, L_N_TAB,   KC_ENT,  KC_SPC,  KC_BSPC
-  ), //KOEN
+    /* KOEN */                 L_F_DEL, L_E_ESC, L_N_TAB,   KC_ENT,  KC_SPC,  KC_BSPC
+  ),
 
   [_UTIL] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
-    CTL_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_SCLN,
+    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
+    CTL_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     KC_TAB,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, L_TG_AR,
                                L_F_DEL, L_E_SPC, L_N_ENT,   L_N_ENT, L_E_SPC, L_F_BSP
   ),
   [_GAME] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,    KC_QUOT, KC_BSPC,
-    KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,      KC_H,    KC_J,    KC_K,    KC_L,    KC_P,    KC_SCLN,
+    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,    KC_SCLN, KC_BSPC,
+    KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,      KC_H,    KC_J,    KC_K,    KC_L,    KC_P,    KC_QUOT,
     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, L_TG_AR,
                                KC_LALT, KC_SPC,  KC_TAB,    L_N_ENT, L_E_SPC, L_F_DEL
   ),
@@ -33,10 +33,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NUMBER] = LAYOUT_split_3x6_3(
-    XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX,   XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX,
-    XXXXXXX, KC_LGUI, M_ALT_4, M_SFT_5, M_CTL_6, XXXXXXX,   XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, L_TG_NP,
-    XXXXXXX, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_0,      KC_0,    KC_1,    KC_2,    KC_3,    KC_DOT,  XXXXXXX,
-                               XXXXXXX, XXXXXXX, XXXXXXX,   KC_ENT,  KC_0,    KC_BSPC
+    XXXXXXX, XXXXXXX, KC_DOT,  KC_0,    KC_9,    XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, M_GUI_4, M_ALT_3, M_SFT_2, M_CTL_1, KC_DLR,    KC_AMPR, M_CTL_0, M_SFT_7, M_ALT_8, M_GUI_9, L_TG_NP,
+    XXXXXXX, KC_8,    KC_7,    KC_6,    KC_5,    KC_PERC,   KC_CIRC, KC_6,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+                               XXXXXXX, KC_SPC,  XXXXXXX,   KC_ENT,  KC_SPC,  KC_BSPC
   ),
   [_NUMPAD] = LAYOUT_split_3x6_3(
     XXXXXXX, XXXXXXX, KC_PDOT, KC_PCMM, KC_PEQL, XXXXXXX,   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_CALC,
@@ -59,9 +59,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FUNC] = LAYOUT_split_3x6_3(
-    KC_SLEP, KC_F12,  KC_F7,   KC_F8,   KC_F9,   XXXXXXX,   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_PWR,
-    L_TG_MS, KC_F11,  KC_F4,   KC_F5,   KC_F6,   XXXXXXX,   XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, L_TG_NP,
-    DEBUG,   KC_F10,  KC_F1,   KC_F2,   KC_F3,   XXXXXXX,   XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, XXXXXXX,
+    KC_SLEP, KC_F12,  KC_F11,  KC_F10,  KC_F9,   XXXXXXX,   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_PWR,
+    L_TG_MS, KC_F4,   KC_F3,   KC_F2,   KC_F1,   XXXXXXX,   XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, L_TG_NP,
+    DEBUG,   KC_F8,   KC_F7,   KC_F6,   KC_F5,   XXXXXXX,   XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, XXXXXXX,
                                L_TG_LK, PB_1,    PB_2,      PB_3,    PB_4,    L_TG_LK
   ),
   [_LOCK] = LAYOUT_split_3x6_3(
@@ -111,6 +111,9 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     }
 #    endif
     switch(keycode) {
+        case SH_GRV:
+        case SH_QUOT:
+        case KC_SCLN:
         case KC_DOT:
         case KC_COMM:
             return true;
@@ -121,8 +124,9 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_DOT:  register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
-        case KC_COMM: register_code16((!shifted) ? KC_COMM : KC_TILD); break;
+        case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_HASH); break;
+        case KC_DOT : register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_COMM: register_code16((!shifted) ? KC_COMM : KC_AT  ); break;
         default:
             if (shifted) {
                 add_weak_mods(MOD_BIT(KC_LSFT));
@@ -138,8 +142,9 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_DOT:  unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
-        case KC_COMM: unregister_code16((!shifted) ? KC_COMM : KC_TILD); break;
+        case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_HASH); break;
+        case KC_DOT : unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_COMM: unregister_code16((!shifted) ? KC_COMM : KC_AT  ); break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
             // The IS_RETRO check isn't really necessary here, always using
@@ -151,17 +156,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
 
 
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-    switch (index) {
-        case tr_LPRN:
-        case ni_RPRN:
-        case sr_MINS:
-        case ei_UNDS:
-        case ts_PLUS:
-        case ne_ASTR:
-            return true;
-        default:
-            return false;
-    }
+    return true;
 }
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {

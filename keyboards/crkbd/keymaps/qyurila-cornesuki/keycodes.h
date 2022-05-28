@@ -29,16 +29,21 @@
 #define M_ALT_I   LALT_T(KC_I)
 #define M_GUI_O   LGUI_T(KC_O)
 
-#define M_ALT_4   LALT_T(KC_4)
-#define M_SFT_5   LSFT_T(KC_5)
-#define M_CTL_6   LCTL_T(KC_6)
+#define M_GUI_4   LGUI_T(KC_4)
+#define M_ALT_3   LALT_T(KC_3)
+#define M_SFT_2   LSFT_T(KC_2)
+#define M_CTL_1   LCTL_T(KC_1)
+#define M_CTL_0   LCTL_T(KC_0)
+#define M_SFT_7   LSFT_T(KC_7)
+#define M_ALT_8   LALT_T(KC_8)
+#define M_GUI_9   LGUI_T(KC_9)
 
 // etc.
 #define CTL_GRV LCTL_T(KC_GRV)
 
 // Swap Hands
 #define SH_GRV  SH_T(KC_GRV)
-#define SH_SCLN SH_T(KC_SCLN)
+#define SH_QUOT SH_T(KC_QUOT)
 
 // One-Shot Mod
 #define OSM_SFT OSM(MOD_LSFT)
