@@ -25,6 +25,7 @@
 // etc.
 #define MOUSEKEY_INTERVAL 16
 #define MOUSEKEY_MAX_SPEED 8
+#define CAPS_WORD_IDLE_TIMEOUT 10000
 
 // Squeezing
 #define LAYER_STATE_16BIT

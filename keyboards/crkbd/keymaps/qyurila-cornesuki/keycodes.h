@@ -42,8 +42,8 @@
 #define CTL_GRV LCTL_T(KC_GRV)
 
 // Swap Hands
-#define SH_GRV  SH_T(KC_GRV)
-#define SH_QUOT SH_T(KC_QUOT)
+#define SH_ESC  SH_T(KC_ESC)
+#define SH_BSPC SH_T(KC_BSPC)
 
 // One-Shot Mod
 #define OSM_SFT OSM(MOD_LSFT)

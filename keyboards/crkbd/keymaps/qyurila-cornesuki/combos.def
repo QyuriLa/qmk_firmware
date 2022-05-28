@@ -16,9 +16,5 @@ COMB(ne_COLN,   KC_COLN,   M_CTL_N, M_SFT_E         )
 COMB(ds_PLUS,   KC_PLUS,   KC_D,    M_SFT_S         )
 COMB(he_ASTR,   KC_ASTR,   KC_H,    M_SFT_E         )
 
-COMB(rz_PIPE,   KC_PIPE,                     M_ALT_R, KC_Z   )
-COMB(iS_BSLS,   KC_BSLS,                     M_ALT_I, KC_SLSH)
-
-COMB(ESCq_UTIL, TG(_UTIL), KC_ESC,  KC_Q   )
-COMB(BSPB_GAME, TG(_GAME), KC_BSPC, KC_BSLS)
-COMB(BSPS_GAME, TG(_GAME), KC_BSPC, KC_QUOT)
+COMB(Eq_UTIL,   TG(_UTIL), SH_ESC,  KC_Q   )
+COMB(BS_GAME,   TG(_GAME), SH_BSPC, KC_SCLN)

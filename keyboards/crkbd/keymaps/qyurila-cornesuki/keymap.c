@@ -7,20 +7,20 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
-    SH_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, SH_QUOT,
+    SH_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, SH_BSPC,
+    KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     KC_RALT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
     /* KOEN */                 L_F_DEL, L_E_ESC, L_N_TAB,   KC_ENT,  KC_SPC,  KC_BSPC
   ),
 
   [_UTIL] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
+    SH_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, SH_BSPC,
     CTL_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     KC_TAB,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, L_TG_AR,
                                L_F_DEL, L_E_SPC, L_N_ENT,   L_N_ENT, L_E_SPC, L_F_BSP
   ),
   [_GAME] = LAYOUT_split_3x6_3(
-    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,    KC_SCLN, KC_BSPC,
+    SH_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,    KC_SCLN, SH_BSPC,
     KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,      KC_H,    KC_J,    KC_K,    KC_L,    KC_P,    KC_QUOT,
     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, L_TG_AR,
                                KC_LALT, KC_SPC,  KC_TAB,    L_N_ENT, L_E_SPC, L_F_DEL
@@ -111,8 +111,6 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     }
 #    endif
     switch(keycode) {
-        case SH_GRV:
-        case SH_QUOT:
         case KC_SCLN:
         case KC_DOT:
         case KC_COMM:
@@ -131,8 +129,8 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             if (shifted) {
                 add_weak_mods(MOD_BIT(KC_LSFT));
             }
-            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
 #    ifdef RETRO_SHIFT
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
             register_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
 #    else
             register_code16(keycode);
