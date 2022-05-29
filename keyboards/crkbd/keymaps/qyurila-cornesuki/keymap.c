@@ -102,11 +102,11 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef AUTO_SHIFT_TIMEOUT
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
-    if (layer_state_is(_GAME)) {
+    if (IS_LAYER_ON(_GAME)) {
         return false;
     }
 #    ifdef RETRO_SHIFT
-    if (IS_RETRO(keycode)) {
+    if (IS_RETRO(keycode) && IS_LAYER_OFF(_NUMBER)) {
         return true;
     }
 #    endif
@@ -152,11 +152,13 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
 }
 #endif
 
-
+#ifdef COMBO_MUST_TAP_PER_COMBO
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
     return true;
 }
+#endif
 
+#ifdef COMBO_SHOULD_TRIGGER
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     // _BASE, _NUMBER, _NUMPAD
     if (layer_state|0b00110001) {
@@ -164,6 +166,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
     }
     return false;
 }
+#endif
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
