@@ -4,10 +4,11 @@
 #define L_F_DEL LT(_FUNC,   KC_DEL)
 #define L_E_ESC LT(_EXTEND, KC_ESC)
 #define L_N_TAB LT(_NUMBER,  KC_TAB)
+#define L_E_ENT LT(_EXTEND, KC_ENT)
+#define L_N_SPC LT(_NUMBER, KC_SPC)
 
 #define L_E_SPC LT(_EXTEND, KC_SPC)
 #define L_N_ENT LT(_NUMBER, KC_ENT)
-#define L_F_BSP LT(_FUNC,   KC_BSPC)
 
 // Layer Toggle
 #define L_TG_UT TG(_UTIL)
