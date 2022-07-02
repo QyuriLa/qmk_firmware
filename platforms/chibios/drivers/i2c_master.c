@@ -97,7 +97,7 @@ static const I2CConfig i2cconfig = {
     I2C1_OPMODE,
     I2C1_CLOCK_SPEED,
     I2C1_DUTY_CYCLE,
-#elif defined(WB32F3G71xx)
+#elif defined(WB32F3G71xx) || defined(WB32FQ95xx)
     I2C1_OPMODE,
     I2C1_CLOCK_SPEED,
 #else
@@ -203,4 +203,6 @@ i2c_status_t i2c_readReg16(uint8_t devaddr, uint16_t regaddr, uint8_t* data, uin
     return chibios_to_qmk(&status);
 }
 
-void i2c_stop(void) { i2cStop(&I2C_DRIVER); }
+void i2c_stop(void) {
+    i2cStop(&I2C_DRIVER);
+}

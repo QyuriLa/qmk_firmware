@@ -38,9 +38,18 @@
 # RISC-V:
 #     gd32v-dfu    GD32V USB DFU in ROM
 #
+# If you need to provide your own implementation, you can set inside `rules.mk`
+# `BOOTLOADER = custom` -- you'll need to provide your own implementations. See
+# the respective file under `platforms/<PLATFORM>/bootloaders/custom.c` to see
+# which functions may be overridden.
+#
 # BOOTLOADER_SIZE can still be defined manually, but it's recommended
 # you add any possible configuration to this list
 
+ifeq ($(strip $(BOOTLOADER)), custom)
+    OPT_DEFS += -DBOOTLOADER_CUSTOM
+    BOOTLOADER_TYPE = custom
+endif
 ifeq ($(strip $(BOOTLOADER)), atmel-dfu)
     OPT_DEFS += -DBOOTLOADER_ATMEL_DFU
     OPT_DEFS += -DBOOTLOADER_DFU
@@ -88,11 +97,17 @@ ifeq ($(strip $(BOOTLOADER)), halfkay)
     OPT_DEFS += -DBOOTLOADER_HALFKAY
     BOOTLOADER_TYPE = halfkay
 
+    # Teensy 2.0
     ifeq ($(strip $(MCU)), atmega32u4)
         BOOTLOADER_SIZE = 512
     endif
+    # Teensy 2.0++
     ifeq ($(strip $(MCU)), at90usb1286)
         BOOTLOADER_SIZE = 1024
+    endif
+    # Teensy LC, 3.x
+    ifneq (,$(filter $(MCU_ORIG), MKL26Z64 MK20DX128 MK20DX256 MK66FX1M0))
+        FIRMWARE_FORMAT = hex
     endif
 endif
 ifeq ($(strip $(BOOTLOADER)), caterina)
@@ -193,7 +208,11 @@ ifeq ($(strip $(BOOTLOADER)), md-boot)
     OPT_DEFS += -DBOOTLOADER_MD_BOOT
     BOOTLOADER_TYPE = md_boot
 endif
+ifeq ($(strip $(BOOTLOADER)), wb32-dfu)
+    OPT_DEFS += -DBOOTLOADER_WB32_DFU
+    BOOTLOADER_TYPE = wb32_dfu
+endif
 
 ifeq ($(strip $(BOOTLOADER_TYPE)),)
-    BOOTLOADER_TYPE = none
+    $(call CATASTROPHIC_ERROR,Invalid BOOTLOADER,No bootloader specified. Please set an appropriate 'BOOTLOADER' in your keyboard's 'rules.mk' file.)
 endif

@@ -17,6 +17,7 @@
 #include "bootloader.h"
 
 #include <ch.h>
+#include <hal.h>
 
 #define DBGMCU_KEY_UNLOCK 0x4B5A6978
 #define DBGMCU_CMD_RESET 0x1
@@ -31,6 +32,13 @@ __attribute__((weak)) void bootloader_jump(void) {
      * that allow issueing a software reset. WHO would need the MSFRST
      * register anyway? Source:
      * https://github.com/esmil/gd32vf103inator/blob/master/include/gd32vf103/dbg.h */
+    *DBGMCU_KEY = DBGMCU_KEY_UNLOCK;
+    *DBGMCU_CMD = DBGMCU_CMD_RESET;
+}
+
+__attribute__((weak)) void mcu_reset(void) {
+    // Confirmed by karlk90, there is no actual reset to bootloader.
+    // This just resets the controller.
     *DBGMCU_KEY = DBGMCU_KEY_UNLOCK;
     *DBGMCU_CMD = DBGMCU_CMD_RESET;
 }
