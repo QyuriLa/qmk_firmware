@@ -10,7 +10,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     SH_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, SH_BSPC,
     KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,      KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     KC_NUHS, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,      KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                               L_F_DEL, L_E_ESC, L_N_TAB,   L_E_ENT, L_N_SPC, KC_BSPC
+                               L_F_DEL, L_E_ESC, L_N_TAB,   KC_ENT,  KC_SPC,  KC_BSPC
   ),
 
   [_UTIL] = LAYOUT_split_3x6_3(
@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,      _______, _______, KC_UP,   _______, _______, KC_BSPC,
     _______, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,      _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
     _______, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,      _______, _______, _______, _______, _______, L_TG_AR,
-                               _______, _______, _______,   _______, _______, _______
+                               _______, _______, _______,   _______, KC_SPC,  _______
   ),
 
   [_NUMBER] = LAYOUT_split_3x6_3(
@@ -40,14 +40,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUMPAD] = LAYOUT_split_3x6_3(
     XXXXXXX, XXXXXXX, KC_PDOT, KC_PCMM, KC_PEQL, XXXXXXX,   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_CALC,
-    XXXXXXX, KC_LGUI, OSM_ALT, OSM_SFT, OSM_CTL, XXXXXXX,   KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, L_TG_NP,
+    XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,   KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, L_TG_NP,
     XXXXXXX, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX,   KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
                                L_F_DEL, L_E_ESC, KC_TAB,    KC_PENT, KC_P0,   KC_BSPC
   ),
 
   [_EXTEND] = LAYOUT_split_3x6_3(                           // HANJ
     XXXXXXX, XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX,   KC_RCTL, KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_NUM,
-    L_TG_MS, KC_LGUI, OSM_ALT, OSM_SFT, OSM_CTL, KC_BTN1,   KC_APP,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_SCRL,
+    L_TG_MS, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_BTN1,   KC_APP,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_SCRL,
     XXXXXXX, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V),   KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_DEL,  KC_PAUS,
                                XXXXXXX, XXXXXXX, XXXXXXX,   KC_ENT,  KC_SPC,  KC_BSPC
   ),
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FUNC] = LAYOUT_split_3x6_3(
-    KC_SLEP, KC_F12,  KC_F11,  KC_F10,  KC_F9,   XXXXXXX,   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_PWR,
+    XXXXXXX, KC_F12,  KC_F11,  KC_F10,  KC_F9,   XXXXXXX,   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, KC_PWR,
     L_TG_MS, KC_F4,   KC_F3,   KC_F2,   KC_F1,   XXXXXXX,   XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, L_TG_NP,
     L_TG_LK, KC_F8,   KC_F7,   KC_F6,   KC_F5,   XXXXXXX,   XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, DEBUG,
                                KC_RALT, PB_1,    PB_2,      PB_3,    PB_4,    KC_RALT
@@ -75,8 +75,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_F_DEL:
-        case L_N_TAB:
         case L_E_ENT:
         case L_N_SPC:
         case L_E_SPC:
@@ -91,7 +89,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case L_F_DEL:
         case L_E_ESC:
+        case L_N_TAB:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -167,9 +167,15 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 
 #ifdef COMBO_SHOULD_TRIGGER
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    // _BASE, _NUMBER, _NUMPAD
-    if (IS_LAYER_OFF(_GAME) || combo_index == BS_GAME) {
-        return true;
+    switch (get_highest_layer(layer_state)) {
+        case _BASE:
+        case _UTIL:
+        case _NUMBER:
+            return true;
+        case _GAME:
+            if (combo_index >= Eq_UTIL) {
+                return true;
+            }
     }
     return false;
 }
@@ -198,6 +204,19 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _BASE:
+        case _NUMBER:
+            autoshift_enable();
+            break;
+        default:
+            autoshift_disable();
+            break;
+    }
+    return state;
+}
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
