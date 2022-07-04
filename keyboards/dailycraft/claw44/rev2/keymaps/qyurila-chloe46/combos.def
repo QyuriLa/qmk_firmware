@@ -1,0 +1,21 @@
+#include "keycodes.h"
+
+COMB(pw_LBRC,   KC_LBRC,   KC_P,             KC_W   )  // [
+COMB(ly_RBRC,   KC_RBRC,   KC_L,             KC_Y   )  // ]
+COMB(tr_LPRN,   KC_LPRN,   M_CTL_T,          M_ALT_R)  // (
+COMB(ni_RPRN,   KC_RPRN,   M_CTL_N,          M_ALT_I)  // )
+COMB(dx_LCBR,   KC_LCBR,   KC_D,             KC_X   )  // {
+COMB(hD_RCBR,   KC_RCBR,   KC_H,             KC_DOT )  // }
+COMB(tx_LABK,   KC_LABK,   KC_D,             M_ALT_R)  // <
+COMB(nD_RABK,   KC_RABK,   KC_H,             M_ALT_I)  // >
+
+COMB(sr_MINS,   KC_MINS,            M_SFT_S, M_ALT_R)  // -
+COMB(ei_UNDS,   KC_UNDS,            M_SFT_E, M_ALT_I)  // _
+COMB(ts_EQL,    KC_EQL,    M_CTL_T, M_SFT_S         )  // =
+COMB(ne_COLN,   KC_COLN,   M_CTL_N, M_SFT_E         )  // :
+COMB(ds_PLUS,   KC_PLUS,   KC_D,    M_SFT_S         )  // +
+COMB(he_ASTR,   KC_ASTR,   KC_H,    M_SFT_E         )  // *
+COMB(cr_AMPR,   KC_AMPR,            KC_C,    M_ALT_R)  // &
+COMB(Ci_PIPE,   KC_PIPE,            KC_COMM, M_ALT_I)  // |
+COMB(sx_DLR,    KC_DLR,             M_SFT_S, KC_X   )  // $
+COMB(eD_CIRC,   KC_CIRC,            M_SFT_E, KC_DOT )  // ^
