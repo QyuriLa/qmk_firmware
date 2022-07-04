@@ -14,7 +14,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include <stdio.h>
+
+#include "paw3204.h"
+#include "pointing_device.h"
+bool isScrollMode;
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -26,6 +29,11 @@ enum layer_number {
     _RAISE,
     _LOWER,
     _ADJUST,
+};
+
+enum custom_keycodes {
+  QWERTY = SAFE_RANGE,
+  SCRL
 };
 
 #define KC_L_SPC LT(_LOWER, KC_SPC)  // lower
@@ -40,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,--------+--------+--------+--------+--------+--------.                 ,--------+---------+--------+---------+--------+--------.
        KC_ESC , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,                   KC_Y   , KC_U    , KC_I   , KC_O    , KC_P   , KC_MINS,
     //|--------+--------+--------+--------+--------+--------|                 |--------+---------+--------+---------+--------+--------|
-       KC_TAB , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_BSPC, KC_BSPC, KC_H   , KC_J    , KC_K   , KC_L    , KC_SCLN, KC_QUOT,
+       KC_TAB , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_MS_BTN1,KC_NO, KC_H   , KC_J    , KC_K   , KC_L    , KC_SCLN, KC_QUOT,
     //|--------+--------+--------+--------+--------+--------|                 |--------+---------+--------+---------+--------+--------|
-       KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_DEL , KC_DEL , KC_N   , KC_M    , KC_COMM, KC_DOT  , KC_SLSH, KC_RSFT,
+       KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_MS_BTN2,KC_NO, KC_N   , KC_M    , KC_COMM, KC_DOT  , KC_SLSH, KC_RSFT,
     //`--------+--------+--------+--------+--------+--------/                 \--------+---------+--------+---------+--------+--------'
                         KC_A_DEL, KC_G_EN, KC_L_SPC,KC_C_BS,                   KC_C_BS, KC_R_ENT, KC_G_JA, KC_A_DEL
     //                `----------+--------+--------+--------'                 `--------+---------+--------+---------'
@@ -71,6 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          RESET  , _______, _______, _______,                   _______, _______, _______, _______
     //                  `--------+--------+--------+--------'                 `--------+--------+--------+--------'
     ),
+
     [_ADJUST] = LAYOUT(
     //,--------+--------+--------+--------+--------+--------.                     ,--------+--------+--------+--------+--------+--------.
         _______, _______, _______, _______, _______, _______,                       _______, _______, _______, _______, _______, _______,
@@ -84,83 +93,88 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-#ifdef OLED_ENABLE
 
-void render_layer_state(void) {
-    switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
-            oled_write_ln_P(PSTR("Layer: Default"), false);
-            break;
-        case _RAISE:
-            oled_write_ln_P(PSTR("Layer: Raise"), false);
-            break;
-        case _LOWER:
-            oled_write_ln_P(PSTR("Layer: Lower"), false);
-            break;
-        case _ADJUST:
-            oled_write_ln_P(PSTR("Layer: Adjust"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("Layer: Undefined"), false);
-    }
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case SCRL:
+      if (record->event.pressed) {
+        isScrollMode = true;
+        dprint("scroll ON\n");
+      }
+      else {
+        isScrollMode = false;
+        dprint("scroll OFF\n");
+      }
+      return false;
+  }
+  return true;
 }
 
-void render_logo(void) {
-    static const char PROGMEM logo[] = {0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4, 0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0};
-    oled_write_P(logo, false);
+void matrix_init_user(void) {
+    init_paw3204();
 }
 
-char keylog_str[24]  = {};
-char keylogs_str[21] = {};
-int  keylogs_str_idx = 0;
+void matrix_scan_user(void) {
+    static int  cnt;
+    static bool paw_ready;
 
-const char code_to_name[60] = {' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'R', 'E', 'B', 'T', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ';', '\'', ' ', ',', '.', '/', ' ', ' ', ' '};
+    report_mouse_t mouse_rep = pointing_device_get_report();
 
-void set_keylog(uint16_t keycode, keyrecord_t *record) {
-    char name = ' ';
-    if (keycode < 60) {
-        name = code_to_name[keycode];
-    }
-
-    // update keylog
-    snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c", record->event.key.row, record->event.key.col, keycode, name);
-
-    // update keylogs
-    if (keylogs_str_idx == sizeof(keylogs_str) - 1) {
-        keylogs_str_idx = 0;
-        for (int i = 0; i < sizeof(keylogs_str) - 1; i++) {
-            keylogs_str[i] = ' ';
+    if (cnt++ % 50 == 0) {
+        uint8_t pid = read_pid_paw3204();
+        if (pid == 0x30) {
+            dprint("paw3204 OK\n");
+            paw_ready = true;
+        } else {
+            dprintf("paw3204 NG:%d\n", pid);
+            paw_ready = false;
         }
     }
 
-    keylogs_str[keylogs_str_idx] = name;
-    keylogs_str_idx++;
-}
+    if (paw_ready) {
+        uint8_t stat;
+        int8_t x, y;
+        int8_t r_x, r_y;
 
-const char *read_keylog(void) { return keylog_str; }
-const char *read_keylogs(void) { return keylogs_str; }
+        read_paw3204(&stat, &x, &y);
 
-bool oled_task_user(void) {
-    if (is_keyboard_master()) {
-        render_layer_state();
-        oled_write_ln(read_keylog(), false);
-        oled_write_ln(read_keylogs(), false);
-    } else {
-        render_logo();
+        // 45-degree angle
+        int8_t degree = 45;
+        r_x =  x * cos(degree) + y * sin(degree);
+        r_y = -x * sin(degree) + y * cos(degree);
+        /* normal angle
+        r_x = y;
+        r_y = x;
+        */
+
+        if (isScrollMode) {
+            if (cnt % 5 == 0) {
+                mouse_rep.v = -r_y;
+                mouse_rep.h = r_x;
+            }
+        } else {
+            mouse_rep.x = r_x;
+            mouse_rep.y = r_y;
+        }
+
+        if (cnt % 10 == 0) {
+            dprintf("stat:%3d x:%4d y:%4d\n", stat, mouse_rep.x, mouse_rep.y);
+        }
+
+        if (stat & 0x80) {
+            pointing_device_set_report(mouse_rep);
+        }
     }
-    return false;
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        set_keylog(keycode, record);
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case _LOWER:
+        isScrollMode = true;
+        break;
+    default:
+        isScrollMode = false;
+        break;
     }
-    return true;
+  return state;
 }
-
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (!is_keyboard_master()) return OLED_ROTATION_180;
-    return rotation;
-}
-
-#endif

@@ -19,4 +19,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define MASTER_LEFT
-#define OLED_FONT_H "keyboards/dailycraft/claw44/lib/glcdfont.c"
+
+#define ENCODERS_PAD_A { B5, B6 }
+#define ENCODERS_PAD_B { B4, B2 }
+#define ENCODER_RESOLUTION 4
+
+#define TAPPING_TERM 180
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM_PER_KEY

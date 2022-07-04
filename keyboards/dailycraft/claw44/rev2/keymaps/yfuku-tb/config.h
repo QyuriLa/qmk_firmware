@@ -18,5 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define MASTER_LEFT
-#define OLED_FONT_H "keyboards/dailycraft/claw44/lib/glcdfont.c"
+#define MASTER_RIGHT
+
+#define TAPPING_TERM 180
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM_PER_KEY
