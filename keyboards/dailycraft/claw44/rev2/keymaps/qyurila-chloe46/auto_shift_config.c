@@ -31,7 +31,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_HASH); break;
+        case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         case KC_DOT : register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
         case KC_COMM: register_code16((!shifted) ? KC_COMM : KC_AT  ); break;
         default:
@@ -49,7 +49,7 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_HASH); break;
+        case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         case KC_DOT : unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
         case KC_COMM: unregister_code16((!shifted) ? KC_COMM : KC_AT  ); break;
         default:
