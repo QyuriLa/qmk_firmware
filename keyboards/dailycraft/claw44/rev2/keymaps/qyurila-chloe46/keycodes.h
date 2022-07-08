@@ -1,8 +1,8 @@
 #pragma once
 
 // Layer-Tap
-#define L_F_ESC LT(_FUNC,   KC_ESC)
-#define L_N_TAB LT(_NUMBER,  KC_TAB)
+#define L_F_SPC LT(_FUNC,   KC_SPC)
+#define L_N_ESC LT(_NUMBER, KC_ESC)
 #define L_E_ENT LT(_EXTEND, KC_ENT)
 
 #define L_N_BSP LT(_NUMBER, KC_BSPC)
@@ -37,7 +37,7 @@
 #define M_GUI_9 LGUI_T(KC_9)
 
 // Swap Hands
-#define SH_SPC  SH_T(KC_SPC)
+#define SH_TAB  SH_T(KC_TAB)
 #define SH_RALT SH_T(KC_RALT)
 
 // One-Shot Mod
