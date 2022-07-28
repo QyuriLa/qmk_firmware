@@ -135,21 +135,19 @@ bool process_tapping(keyrecord_t *keyp) {
         if (WITHIN_TAPPING_TERM(event)
 #    if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
             || (
-                get_auto_shifted_key(tapping_keycode, keyp) &&
 #        ifdef RETRO_TAPPING_PER_KEY
                 get_retro_tapping(tapping_keycode, &tapping_key) &&
 #        endif
-                // extends TAPPING_TERM:
-                //   indefinitely if RETRO_SHIFT does not have a value (+0 is to compile successfully)
-                //   to RETRO_SHIFT if it is set
-                // for possibly retro shifted keys
-                ((RETRO_SHIFT + 0) == 0 || TIMER_DIFF_16(event.time, tapping_key.event.time) < (RETRO_SHIFT + 0))
+                (RETRO_SHIFT + 0) != 0 && TIMER_DIFF_16(event.time, tapping_key.event.time) < (RETRO_SHIFT + 0)
             )
 #    endif
         ) {
             // clang-format on
             if (tapping_key.tap.count == 0) {
                 if (IS_TAPPING_RECORD(keyp) && !event.pressed) {
+#    if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
+                    retroshift_swap_times();
+#    endif
                     // first tap!
                     debug("Tapping: First tap(0->1).\n");
                     tapping_key.tap.count = 1;
@@ -180,7 +178,6 @@ bool process_tapping(keyrecord_t *keyp) {
                     // unnecessarily and fixes them for Layer Taps.
 #        if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
                     || (
-                        get_auto_shifted_key(tapping_keycode, keyp) &&
 #            ifdef RETRO_TAPPING_PER_KEY
                         get_retro_tapping(tapping_keycode, &tapping_key) &&
 #            endif
@@ -307,9 +304,6 @@ bool process_tapping(keyrecord_t *keyp) {
                 } else {
                     if (!IS_NOEVENT(event)) {
                         debug("Tapping: key event while last tap(>0).\n");
-#    if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
-                        retroshift_swap_times();
-#    endif
                     }
                     process_record(keyp);
                     return true;
@@ -367,15 +361,10 @@ bool process_tapping(keyrecord_t *keyp) {
         if (WITHIN_TAPPING_TERM(event)
 #    if defined(AUTO_SHIFT_ENABLE) && defined(RETRO_SHIFT)
             || (
-                get_auto_shifted_key(tapping_keycode, keyp) &&
 #        ifdef RETRO_TAPPING_PER_KEY
                 get_retro_tapping(tapping_keycode, &tapping_key) &&
 #        endif
-                // extends TAPPING_TERM:
-                //   indefinitely if RETRO_SHIFT does not have a value (+0 is to compile successfully)
-                //   to RETRO_SHIFT if it is set
-                // for possibly retro shifted keys
-                ((RETRO_SHIFT + 0) == 0 || TIMER_DIFF_16(event.time, tapping_key.event.time) < (RETRO_SHIFT + 0))
+                (RETRO_SHIFT + 0) != 0 && TIMER_DIFF_16(event.time, tapping_key.event.time) < (RETRO_SHIFT + 0)
             )
 #    endif
         ) {
