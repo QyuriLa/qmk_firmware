@@ -1099,10 +1099,6 @@ bool is_tap_key(keypos_t key) {
  * FIXME: Needs documentation.
  */
 bool is_tap_record(keyrecord_t *record) {
-    // layer_switch_get_action would attempt to read OOB for TICKs
-    if (IS_NOEVENT(record->event)) {
-        return false;
-    }
 #ifdef COMBO_ENABLE
     action_t action;
     if (record->keycode) {
