@@ -9,4 +9,5 @@ enum layers {
     _EXTEND,
     _MOUSE,
     _FUNC,
+    _MODEXT,
 };

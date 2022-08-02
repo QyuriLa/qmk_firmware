@@ -29,9 +29,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
     KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
-    KC_DEL,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+    SH_MON,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SH_MON,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_SPC, L_E_ESC, L_N_ENT, SH_TAB,                    SH_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_F_ESC, L_E_TAB, L_N_ENT, LOS_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
 
   [_GAME] = LAYOUT(
@@ -49,7 +49,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______, _______,                   KC_ENT,  KC_SPC,  KC_BSPC, KC_DEL
   ),
 
-
   [_NUMBER] = LAYOUT(
     XXXXXXX, KC_COMM, KC_DOT,  KC_0,    KC_9,    _______,                   _______, _______, _______, _______, _______, XXXXXXX,
     XXXXXXX, M_GUI_4, M_ALT_3, M_SFT_2, M_CTL_1, _______, XXXXXXX, _______, _______, M_CTL_0, M_SFT_7, M_ALT_8, M_GUI_9, XXXXXXX,
@@ -62,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
     LTG_NPD, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_SPC, L_E_ESC, L_N_ENT, SH_TAB,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
+                      L_F_ESC, L_E_TAB, L_N_ENT, LOS_MOD,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
   ),
 
   [_EXTEND] = LAYOUT(
@@ -85,7 +84,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_F4,   KC_F3,   KC_F2,   KC_F1,   _______, XXXXXXX, _______, XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, XXXXXXX,
     XXXXXXX, KC_F8,   KC_F7,   KC_F6,   KC_F5,   _______, XXXXXXX, _______, XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, SECURE_LOCK
+  ),
+
+  [_MODEXT] = LAYOUT(
+    XXXXXXX, G(KC_Q), A(KC_W), S(KC_F), C(KC_P), C(KC_B),                   C(KC_J), C(KC_L), S(KC_U), A(KC_Y), G_SCLN,  XXXXXXX,
+    G_GRV,   G(KC_A), A(KC_R), S(KC_S), C(KC_T), C(KC_G), XXXXXXX, XXXXXXX, C(KC_M), C(KC_N), S(KC_E), A(KC_I), G(KC_O), G_QUOT,
+    XXXXXXX, G(KC_Z), A(KC_X), S(KC_C), C(KC_D), C(KC_V), XXXXXXX, XXXXXXX, C(KC_K), C(KC_H), S_COMM,  A_DOT,   G_SLSH,  XXXXXXX,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
 };
 
@@ -120,8 +127,8 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // Tap-Hold Config
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_F_SPC:
-        case L_E_ESC:
+        case L_F_ESC:
+        case L_E_TAB:
         case L_E_BSP:
         case L_F_DEL:
             // Immediately select the hold action when another key is tapped.

@@ -1,12 +1,13 @@
 #pragma once
 
 // Layer-Tap
-#define L_F_SPC LT(_FUNC,   KC_SPC)
-#define L_E_ESC LT(_EXTEND, KC_ESC)
+#define L_F_ESC LT(_FUNC,   KC_ESC)
+#define L_E_TAB LT(_EXTEND, KC_TAB)
 #define L_N_ENT LT(_NUMBER, KC_ENT)
 
 #define L_E_BSP LT(_EXTEND, KC_BSPC)
 #define L_F_DEL LT(_FUNC,   KC_DEL)
+#define LOS_MOD OSL(_MODEXT)
 
 // Layer Toggle
 #define LTO_BS  TO(_BASE)
@@ -37,8 +38,8 @@
 #define M_GUI_9 LGUI_T(KC_9)
 
 // Swap Hands
-#define SH_TAB  SH_T(KC_TAB)
-#define SH_RALT SH_T(KC_RALT)
+// #define SH_TAB  SH_T(KC_TAB)
+// #define SH_RALT SH_T(KC_RALT)
 
 // One-Shot Mod
 // #define OSM_SFT OSM(MOD_LSFT)
@@ -48,3 +49,10 @@
 // etc.
 // #define CTL_MNS C(KC_MINS)
 // #define CTL_EQL C(KC_EQL)
+
+#define G_GRV   G(KC_GRV)
+#define S_COMM  S(KC_COMM)
+#define A_DOT   A(KC_DOT)
+#define G_SLSH  G(KC_SLSH)
+#define G_SCLN  G(KC_SCLN)
+#define G_QUOT  G(KC_QUOT)
