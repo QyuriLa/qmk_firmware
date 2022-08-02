@@ -2,10 +2,10 @@
 
 // Layer-Tap
 #define L_F_ESC LT(_FUNC,   KC_ESC)
-#define L_E_TAB LT(_EXTEND, KC_TAB)
-#define L_N_ENT LT(_NUMBER, KC_ENT)
+#define L_N_TAB LT(_NUMBER, KC_TAB)
+#define L_E_ENT LT(_EXTEND, KC_ENT)
 
-#define L_E_BSP LT(_EXTEND, KC_BSPC)
+#define L_N_BSP LT(_NUMBER, KC_BSPC)
 #define L_F_DEL LT(_FUNC,   KC_DEL)
 #define LMO_MOD MO(_MODEXT)
 
