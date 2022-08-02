@@ -7,7 +7,7 @@
 
 #define L_E_BSP LT(_EXTEND, KC_BSPC)
 #define L_F_DEL LT(_FUNC,   KC_DEL)
-#define LOS_MOD OSL(_MODEXT)
+#define LMO_MOD MO(_MODEXT)
 
 // Layer Toggle
 #define LTO_BS  TO(_BASE)

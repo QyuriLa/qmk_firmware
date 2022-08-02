@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     SH_MON,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SH_MON,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_ESC, L_E_TAB, L_N_ENT, LOS_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_F_ESC, L_E_TAB, L_N_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
 
   [_GAME] = LAYOUT(
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
     LTG_NPD, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_ESC, L_E_TAB, L_N_ENT, LOS_MOD,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
+                      L_F_ESC, L_E_TAB, L_N_ENT, LMO_MOD,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
   ),
 
   [_EXTEND] = LAYOUT(
