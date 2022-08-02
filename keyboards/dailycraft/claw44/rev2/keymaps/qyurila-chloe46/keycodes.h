@@ -2,10 +2,10 @@
 
 // Layer-Tap
 #define L_F_SPC LT(_FUNC,   KC_SPC)
-#define L_N_ESC LT(_NUMBER, KC_ESC)
-#define L_E_ENT LT(_EXTEND, KC_ENT)
+#define L_E_ESC LT(_EXTEND, KC_ESC)
+#define L_N_ENT LT(_NUMBER, KC_ENT)
 
-#define L_N_BSP LT(_NUMBER, KC_BSPC)
+#define L_E_BSP LT(_EXTEND, KC_BSPC)
 #define L_F_DEL LT(_FUNC,   KC_DEL)
 
 // Layer Toggle

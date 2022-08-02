@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     KC_DEL,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_SPC, L_N_ESC, L_E_ENT, SH_TAB,                    SH_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_F_SPC, L_E_ESC, L_N_ENT, SH_TAB,                    SH_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
 
   [_GAME] = LAYOUT(
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, LTO_BS,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
     KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, LTG_ARW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_ENT,  KC_SPC,  KC_TAB,                    KC_RALT, L_E_ENT, L_N_BSP, L_F_DEL
+                      KC_LALT, KC_ENT,  KC_SPC,  KC_TAB,                    KC_RALT, L_N_ENT, L_E_BSP, L_F_DEL
   ),
   [_ARROW] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                   _______, _______, KC_UP,   _______, _______, _______,
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
     LTG_NPD, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_SPC, L_N_ESC, L_E_ENT, SH_TAB,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
+                      L_F_SPC, L_E_ESC, L_N_ENT, SH_TAB,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
   ),
 
   [_EXTEND] = LAYOUT(
@@ -121,8 +121,8 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_F_SPC:
-        case L_N_ESC:
-        case L_N_BSP:
+        case L_E_ESC:
+        case L_E_BSP:
         case L_F_DEL:
             // Immediately select the hold action when another key is tapped.
             return true;
@@ -134,7 +134,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_E_ENT:
+        case L_N_ENT:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -145,7 +145,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_E_ENT:
+        case L_N_ENT:
             return true;
         default:
             return false;
