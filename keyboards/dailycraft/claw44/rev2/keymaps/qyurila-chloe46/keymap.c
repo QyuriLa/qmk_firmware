@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-    XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
+    KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
     KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
     SH_MON,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SH_MON,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
@@ -110,9 +110,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
         case 1:  // Left Lower Knob
             if (clockwise) {
-                tap_code(KC_WH_U);
+                tap_code(KC_WH_L);
             } else {
-                tap_code(KC_WH_D);
+                tap_code(KC_WH_R);
             }
             break;
 
@@ -152,6 +152,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case L_N_TAB:
         case L_E_ENT:
             return true;
         default:
@@ -163,6 +164,11 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 // Combos
 #ifdef COMBO_MUST_TAP_PER_COMBO
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
+    switch (index) {
+        case gt_SPC:
+        case mn_ENT:
+            return false;
+    }
     return true;
 }
 #endif

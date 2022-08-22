@@ -22,3 +22,6 @@ COMB(he_HASH,   KC_HASH,   KC_H,    M_SFT_E         )  // #
 COMB(eD_BSLS,   KC_BSLS,            M_SFT_E, KC_DOT )  // \.
 COMB(CD_PIPE,   KC_PIPE,            KC_COMM, KC_DOT )  // |
 COMB(hC_DLR,    KC_DLR,    KC_H,    KC_COMM         )  // $
+
+COMB(gt_SPC,    KC_SPC,    KC_G,    M_CTL_T         )
+COMB(mn_ENT,    KC_ENT,    KC_M,    M_CTL_N         )
