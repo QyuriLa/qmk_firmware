@@ -12,8 +12,6 @@ NKRO_ENABLE	      = yes
 AUTO_SHIFT_ENABLE = yes
 CAPS_WORD_ENABLE  = yes
 COMBO_ENABLE      = yes
-SECURE_ENABLE     = yes
-SWAP_HANDS_ENABLE = yes
 VPATH += keyboards/gboards
 
 # Squeezing

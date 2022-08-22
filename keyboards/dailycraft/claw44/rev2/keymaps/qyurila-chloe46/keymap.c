@@ -28,18 +28,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
-    KC_GRV,  M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, KC_QUOT,
-    SH_MON,  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SH_MON,
+    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
+    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_F_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
+  // Swap Hands feature has so many bugs with other (already buggy) features...
+  [_SWAP] = LAYOUT(
+    XXXXXXX, KC_SCLN, KC_Y,    KC_U,    KC_L,    KC_J,                      KC_B,    KC_P,    KC_F,    KC_W,    KC_Q,    KC_DEL,
+    _______, M_GUI_O, M_ALT_I, M_SFT_E, M_CTL_N, KC_M,    XXXXXXX, _______, KC_G,    M_CTL_T, M_SFT_S, M_ALT_R, M_GUI_A, _______,
+    XXXXXXX, KC_SLSH, KC_DOT,  KC_COMM, KC_H,    KC_K,    XXXXXXX, _______, KC_V,    KC_D,    KC_C,    KC_X,    KC_Z,    KC_BSPC,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_F_ESC
+  ),
 
   [_GAME] = LAYOUT(
     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, LTO_BS,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
     KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, LTG_ARW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_ENT,  KC_SPC,  KC_TAB,                    KC_RALT, L_E_ENT, L_N_BSP, L_F_DEL
+                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_RALT, L_E_ENT, L_N_BSP, L_F_DEL
   ),
   [_ARROW] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                   _______, _______, KC_UP,   _______, _______, _______,

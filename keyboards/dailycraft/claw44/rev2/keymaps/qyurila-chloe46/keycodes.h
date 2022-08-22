@@ -4,6 +4,8 @@
 #define L_F_ESC LT(_FUNC,   KC_ESC)
 #define L_N_TAB LT(_NUMBER, KC_TAB)
 #define L_E_ENT LT(_EXTEND, KC_ENT)
+#define L_S_GRV LT(_SWAP,   KC_GRV)
+#define L_S_QUT LT(_SWAP,   KC_QUOT)
 
 #define L_N_BSP LT(_NUMBER, KC_BSPC)
 #define L_F_DEL LT(_FUNC,   KC_DEL)
