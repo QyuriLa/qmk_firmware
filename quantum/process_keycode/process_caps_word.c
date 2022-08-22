@@ -120,10 +120,10 @@ bool process_caps_word(uint16_t keycode, keyrecord_t* record) {
                         case MOD_RSFT | MOD_RALT:
                             keycode = RSFT(KC_RALT);
                             break;
+                        case MOD_RALT:
+                            return true;
                         default:
-                            if (mods != MOD_RALT) {
-                                caps_word_off();
-                            }
+                            caps_word_off();
                             return true;
                     }
                 } else {
@@ -151,7 +151,11 @@ bool process_caps_word(uint16_t keycode, keyrecord_t* record) {
 #endif // SWAP_HANDS_ENABLE
         }
 
+#ifdef AUTO_SHIFT_ENABLE
+        del_weak_mods(get_autoshift_state() ? ~MOD_BIT(KC_LSFT) : 0xff);
+#else
         clear_weak_mods();
+#endif // AUTO_SHIFT_ENABLE
         if (caps_word_press_user(keycode)) {
             send_keyboard_report();
             return true;
