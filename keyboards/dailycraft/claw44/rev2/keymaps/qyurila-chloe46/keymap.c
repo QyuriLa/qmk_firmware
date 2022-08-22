@@ -58,18 +58,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NUMBER] = LAYOUT(
-    XXXXXXX, KC_COMM, KC_DOT,  KC_0,    KC_9,    _______,                   _______, _______, _______, _______, _______, XXXXXXX,
-    XXXXXXX, M_GUI_4, M_ALT_3, M_SFT_2, M_CTL_1, _______, XXXXXXX, _______, _______, M_CTL_0, M_SFT_7, M_ALT_8, M_GUI_9, XXXXXXX,
-    LTG_NPD, KC_8,    KC_7,    KC_6,    KC_5,    _______, XXXXXXX, _______, _______, KC_6,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    XXXXXXX, _______, _______, _______, _______, _______,                   _______, KC_7,    KC_8,    KC_9,    KC_COMM, XXXXXXX,
+    LTG_NPD, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______, XXXXXXX, _______, KC_0,    KC_4,    KC_5,    KC_6,    KC_0,    XXXXXXX,
+    XXXXXXX, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, KC_1,    KC_2,    KC_3,    KC_DOT,  XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   _______, _______, _______, _______
+                      _______, _______, _______, _______,                   _______, KC_0,    _______, _______
   ),
   [_NUMPAD] = LAYOUT(
     KC_CALC, XXXXXXX, KC_PDOT, KC_PCMM, KC_PEQL, XXXXXXX,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_CALC,
-    XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
-    LTG_NPD, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
+    LTG_NPD, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
+    XXXXXXX, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                    KC_PENT, KC_P0,   KC_BSPC, KC_DEL
+                      L_F_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_PENT, KC_P0,   KC_BSPC, KC_DEL
   ),
 
   [_EXTEND] = LAYOUT(
