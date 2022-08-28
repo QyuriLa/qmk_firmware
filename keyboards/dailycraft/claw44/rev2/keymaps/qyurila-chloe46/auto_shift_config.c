@@ -3,7 +3,7 @@
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case _BASE:
-        case _NUMBER:
+        case _QWERTY:
             autoshift_enable();
             break;
         default:
@@ -15,7 +15,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 #ifdef RETRO_SHIFT
-    if (IS_RETRO(keycode) && IS_LAYER_OFF(_NUMBER)) {
+    if (IS_RETRO(keycode)) {
         return true;
     }
 #endif

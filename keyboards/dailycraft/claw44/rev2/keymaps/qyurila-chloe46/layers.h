@@ -3,12 +3,12 @@
 enum layers {
     _BASE = 0,
     _SWAP,
+    _QWERTY,
     _GAME,
     _ARROW,
+    _EXTEND,
     _NUMBER,
     _NUMPAD,
-    _EXTEND,
-    _MOUSE,
-    _FUNC,
     _MODEXT,
+    _CONFIG,
 };

@@ -28,18 +28,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
-    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, XXXXXXX, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
+    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LMO_CFG, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
     KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_NS_ES, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
-  // Swap Hands feature has so many bugs with other (already buggy) features...
   [_SWAP] = LAYOUT(
-    XXXXXXX, KC_SCLN, KC_Y,    KC_U,    KC_L,    KC_J,                      KC_B,    KC_P,    KC_F,    KC_W,    KC_Q,    KC_DEL,
+    KC_QUOT, KC_SCLN, KC_Y,    KC_U,    KC_L,    KC_J,                      KC_B,    KC_P,    KC_F,    KC_W,    KC_Q,    KC_GRV,
     _______, M_GUI_O, M_ALT_I, M_SFT_E, M_CTL_N, KC_M,    XXXXXXX, _______, KC_G,    M_CTL_T, M_SFT_S, M_ALT_R, M_GUI_A, _______,
-    XXXXXXX, KC_SLSH, KC_DOT,  KC_COMM, KC_H,    KC_K,    XXXXXXX, _______, KC_V,    KC_D,    KC_C,    KC_X,    KC_Z,    KC_BSPC,
+    XXXXXXX, KC_SLSH, KC_DOT,  KC_COMM, KC_H,    KC_K,    XXXXXXX, _______, KC_V,    KC_D,    KC_C,    KC_X,    KC_Z,    XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_F_ESC
+                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_NS_ES
+  ),
+  [_QWERTY] = LAYOUT(
+    KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
+    KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LMO_CFG, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_GM,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      L_NS_ES, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),
 
   [_GAME] = LAYOUT(
@@ -47,29 +53,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, LTO_BS,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
     KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, LTG_ARW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_RALT, L_E_ENT, L_N_BSP, L_F_DEL
+                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_SPC,  KC_ENT,  LMO_NUM, KC_RALT
   ),
   [_ARROW] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                   _______, _______, KC_UP,   _______, _______, _______,
     _______, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
     _______, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, _______, _______, _______, _______, _______,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      _______, _______, _______, _______,                   KC_ENT,  KC_SPC,  KC_BSPC, KC_DEL
-  ),
-
-  [_NUMBER] = LAYOUT(
-    XXXXXXX, _______, _______, _______, _______, _______,                   _______, KC_7,    KC_8,    KC_9,    KC_COMM, XXXXXXX,
-    LTG_NPD, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______, XXXXXXX, _______, KC_0,    KC_4,    KC_5,    KC_6,    KC_0,    XXXXXXX,
-    XXXXXXX, _______, _______, _______, _______, _______, XXXXXXX, _______, _______, KC_1,    KC_2,    KC_3,    KC_DOT,  XXXXXXX,
-  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      _______, _______, _______, _______,                   _______, KC_0,    _______, _______
-  ),
-  [_NUMPAD] = LAYOUT(
-    KC_CALC, XXXXXXX, KC_PDOT, KC_PCMM, KC_PEQL, XXXXXXX,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, KC_CALC,
-    LTG_NPD, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, LTO_BS,  KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
-    XXXXXXX, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
-  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_F_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_PENT, KC_P0,   KC_BSPC, KC_DEL
+                      _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
 
   [_EXTEND] = LAYOUT(
@@ -79,20 +70,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_RCTL, _______, _______, _______
   ),                                                                     // = HANGA (KC_LNG2)
-  [_MOUSE] = LAYOUT(
-    KC_WHOM, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, KC_WH_U, KC_WHOM,
-    KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_BTN1, XXXXXXX, LTO_BS,  KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, XXXXXXX,
-    LTG_MUS, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, XXXXXXX, C(KC_V), C(KC_Z), C(KC_C), C(KC_X), C(KC_Y), XXXXXXX,
+  [_NUMBER] = LAYOUT(
+    XXXXXXX, KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______,                   KC_COMM, KC_7,    KC_8,    KC_9,    KC_COMM, XXXXXXX,
+    XXXXXXX, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, XXXXXXX, _______, KC_0,    KC_4,    KC_5,    KC_6,    KC_0,    XXXXXXX,
+    XXXXXXX, KC_F12,  KC_F3,   KC_F2,   KC_F1,   _______, XXXXXXX, _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_DOT,  XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN4,                   KC_BTN4, KC_BTN1, KC_BTN2, KC_BTN3
+                      _______, _______, _______, _______,                   _______, KC_0,    _______, _______
   ),
-
-  [_FUNC] = LAYOUT(
-    RESET,   KC_F12,  KC_F11,  KC_F10,  KC_F9,   _______,                   XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, XXXXXXX,
-    XXXXXXX, KC_F4,   KC_F3,   KC_F2,   KC_F1,   _______, XXXXXXX, _______, XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, XXXXXXX,
-    XXXXXXX, KC_F8,   KC_F7,   KC_F6,   KC_F5,   _______, XXXXXXX, _______, XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, XXXXXXX,
+  [_NUMPAD] = LAYOUT(
+    XXXXXXX, KC_COMM, KC_9,    KC_8,    KC_7,    KC_COMM,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
+    XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_0,    XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
+    XXXXXXX, KC_DOT,  KC_3,    KC_2,    KC_1,    KC_DOT,  XXXXXXX, _______, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, SECURE_LOCK
+                      _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
 
   [_MODEXT] = LAYOUT(
@@ -101,6 +91,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, G(KC_Z), A(KC_X), S(KC_C), C(KC_D), C(KC_V), XXXXXXX, XXXXXXX, C(KC_K), C(KC_H), S_COMM,  A_DOT,   G_SLSH,  XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       _______, _______, _______, _______,                   _______, _______, _______, _______
+  ),
+  [_CONFIG] = LAYOUT(
+    RESET,   LDF_QTY, XXXXXXX, XXXXXXX, KC_PWR,  XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
 };
 
@@ -135,10 +132,8 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // Tap-Hold Config
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_F_ESC:
+        case L_NS_ES:
         case L_N_TAB:
-        case L_N_BSP:
-        case L_F_DEL:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -174,7 +169,6 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
     switch (index) {
         case gt_SPC:
-        case mn_ENT:
             return false;
     }
     return true;
@@ -185,7 +179,9 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (get_highest_layer(layer_state)) {
         case _BASE:
+        case _QWERTY:
         case _NUMBER:
+        case _NUMPAD:
             return true;
 
         default:
