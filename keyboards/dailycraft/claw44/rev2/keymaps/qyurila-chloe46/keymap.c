@@ -31,21 +31,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LMO_CFG, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
     KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_NS_ES, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
   [_SWAP] = LAYOUT(
     KC_QUOT, KC_SCLN, KC_Y,    KC_U,    KC_L,    KC_J,                      KC_B,    KC_P,    KC_F,    KC_W,    KC_Q,    KC_GRV,
     _______, M_GUI_O, M_ALT_I, M_SFT_E, M_CTL_N, KC_M,    XXXXXXX, _______, KC_G,    M_CTL_T, M_SFT_S, M_ALT_R, M_GUI_A, _______,
     XXXXXXX, KC_SLSH, KC_DOT,  KC_COMM, KC_H,    KC_K,    XXXXXXX, _______, KC_V,    KC_D,    KC_C,    KC_X,    KC_Z,    XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_NS_ES
+                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_P_ESC
   ),
   [_QWERTY] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
     KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LMO_CFG, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_GM,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_NS_ES, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
   ),
 
   [_GAME] = LAYOUT(
@@ -66,23 +66,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_EXTEND] = LAYOUT(
     XXXXXXX, KC_AGIN, KC_CUT,  KC_COPY, KC_UNDO, KC_PSTE,                   KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_PERC, KC_NUM,
     KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, C(KC_T), XXXXXXX, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_GRV , KC_SCRL,
-    LTG_MUS, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_APP,  KC_PAUS,
+    XXXXXXX, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_APP,  KC_PAUS,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_RCTL, _______, _______, _______
   ),                                                                     // = HANGA (KC_LNG2)
   [_NUMBER] = LAYOUT(
-    XXXXXXX, KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______,                   KC_COMM, KC_7,    KC_8,    KC_9,    KC_COMM, XXXXXXX,
-    XXXXXXX, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, XXXXXXX, _______, KC_0,    KC_4,    KC_5,    KC_6,    KC_0,    XXXXXXX,
-    XXXXXXX, KC_F12,  KC_F3,   KC_F2,   KC_F1,   _______, XXXXXXX, _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_DOT,  XXXXXXX,
+    XXXXXXX, KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______,                   _______, KC_7,    KC_8,    KC_9,    _______, XXXXXXX,
+    XXXXXXX, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, XXXXXXX, _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_0,    XXXXXXX,
+    XXXXXXX, KC_F12,  KC_F3,   KC_F2,   KC_F1,   _______, XXXXXXX, _______, _______, KC_1,    KC_2,    KC_3,    _______, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       _______, _______, _______, _______,                   _______, KC_0,    _______, _______
   ),
   [_NUMPAD] = LAYOUT(
-    XXXXXXX, KC_COMM, KC_9,    KC_8,    KC_7,    KC_COMM,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
-    XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_0,    XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
-    XXXXXXX, KC_DOT,  KC_3,    KC_2,    KC_1,    KC_DOT,  XXXXXXX, _______, KC_SPC,  KC_P1,   KC_P2,   KC_P3,   KC_PDOT, XXXXXXX,
+    XXXXXXX, _______, KC_9,    KC_8,    KC_7,    _______,                    KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
+    XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_DOT,   XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
+    XXXXXXX, _______, KC_3,    KC_2,    KC_1,    _______,  XXXXXXX, _______, KC_PEQL, KC_P1,   KC_P2,   KC_P3,   KC_PENT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      _______, _______, _______, _______,                   _______, _______, _______, _______
+                      _______, _______, _______, _______,                    _______, KC_P0,   KC_PDOT, _______
   ),
 
   [_MODEXT] = LAYOUT(
@@ -132,7 +132,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // Tap-Hold Config
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case L_NS_ES:
+        case L_P_ESC:
         case L_N_TAB:
             // Immediately select the hold action when another key is tapped.
             return true;

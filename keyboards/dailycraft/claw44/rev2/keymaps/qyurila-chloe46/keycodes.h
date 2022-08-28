@@ -1,7 +1,7 @@
 #pragma once
 
 // Layer-Tap
-#define L_NS_ES LT(_NUMBER_SWAP, KC_ESC)
+#define L_P_ESC LT(_NUMPAD, KC_ESC)
 #define L_N_TAB LT(_NUMBER, KC_TAB)
 #define L_E_ENT LT(_EXTEND, KC_ENT)
 #define L_S_GRV LT(_SWAP,   KC_GRV)
@@ -16,7 +16,6 @@
 #define LTO_GM  TO(_GAME)
 #define LTG_ARW TG(_ARROW)
 #define LTG_NPD TG(_NUMPAD)
-#define LTG_MUS TG(_MOUSE)
 #define LTG_LCK TG(_LOCK)
 
 // Mod-Tap
@@ -29,15 +28,6 @@
 #define M_SFT_E LSFT_T(KC_E)
 #define M_ALT_I LALT_T(KC_I)
 #define M_GUI_O LGUI_T(KC_O)
-
-#define M_G_F11 LGUI_T(KC_F11)
-#define M_AL_F3 LALT_T(KC_F3)
-#define M_SF_F2 LSFT_T(KC_F2)
-#define M_CT_F1 LCTL_T(KC_F1)
-#define M_CTL_1 LCTL_T(KC_1)
-#define M_SFT_2 LSFT_T(KC_2)
-#define M_ALT_3 LALT_T(KC_3)
-#define M_GUI_0 LGUI_T(KC_0)
 
 // etc.
 #define G_GRV   G(KC_GRV)

@@ -20,9 +20,12 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     }
 #endif
     switch(keycode) {
-        case KC_SCLN:
-        case KC_DOT:
+        case KC_TAB:
+        case KC_2:
+        case KC_3:
         case KC_COMM:
+        case KC_DOT:
+        case KC_SCLN:
             return true;
         default:
             return false;
@@ -31,9 +34,11 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
-        case KC_DOT : register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_2:    register_code16((!shifted) ? KC_2    : KC_COMM); break;
+        case KC_3:    register_code16((!shifted) ? KC_3    : KC_DOT ); break;
         case KC_COMM: register_code16((!shifted) ? KC_COMM : KC_AT  ); break;
+        case KC_DOT:  register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         default:
             if (shifted) {
                 add_weak_mods(MOD_BIT(KC_LSFT));
