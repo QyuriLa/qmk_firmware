@@ -28,10 +28,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
-    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LMO_CFG, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
-    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LTO_GM,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LTO_GM,  KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
+    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LMO_CFG, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
   [_SWAP] = LAYOUT(
     KC_QUOT, KC_SCLN, KC_Y,    KC_U,    KC_L,    KC_J,                      KC_B,    KC_P,    KC_F,    KC_W,    KC_Q,    KC_GRV,
@@ -42,16 +42,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_QWERTY] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
-    KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LMO_CFG, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_GM,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LTO_GM,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LMO_CFG, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   KC_RALT, KC_SPC,  KC_BSPC, KC_DEL
+                      L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
   ),
 
   [_GAME] = LAYOUT(
     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, LTO_BS,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
-    KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, LTG_ARW, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
+    KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, LTG_ARW, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
+    KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, LTO_BS,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_SPC,  KC_ENT,  LMO_NUM, KC_RALT
   ),
@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______, _______,                   _______, KC_0,    _______, _______
   ),
   [_NUMPAD] = LAYOUT(
-    XXXXXXX, _______, KC_9,    KC_8,    KC_7,    _______,                    KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
-    XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_DOT,   XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
-    XXXXXXX, _______, KC_3,    KC_2,    KC_1,    _______,  XXXXXXX, _______, KC_PEQL, KC_P1,   KC_P2,   KC_P3,   KC_PENT, XXXXXXX,
+    XXXXXXX, _______, KC_9,    KC_8,    KC_7,    _______,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
+    XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_DOT,  XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
+    XXXXXXX, _______, KC_3,    KC_2,    KC_1,    _______, XXXXXXX, _______, KC_PEQL, KC_P1,   KC_P2,   KC_P3,   KC_PENT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       _______, _______, _______, _______,                    _______, KC_P0,   KC_PDOT, _______
   ),
@@ -94,8 +94,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_CONFIG] = LAYOUT(
     RESET,   LDF_QTY, XXXXXXX, XXXXXXX, KC_PWR,  XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
