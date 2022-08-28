@@ -115,9 +115,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
         case 1:  // Left Lower Knob
             if (clockwise) {
-                tap_code(KC_WH_L);
+                tap_code16(C(S(KC_TAB)));
             } else {
-                tap_code(KC_WH_R);
+                tap_code16(C(KC_TAB));
             }
             break;
 
