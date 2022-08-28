@@ -18,8 +18,7 @@
 #define LTG_NPD TG(_NUMPAD)
 #define LTG_LCK TG(_LOCK)
 
-// Mod-Tap
-// Home Row
+// Home Row Mod-Tap
 #define M_GUI_A LGUI_T(KC_A)
 #define M_ALT_R LALT_T(KC_R)
 #define M_SFT_S LSFT_T(KC_S)
@@ -29,7 +28,7 @@
 #define M_ALT_I LALT_T(KC_I)
 #define M_GUI_O LGUI_T(KC_O)
 
-// etc.
+// ModExt Layer
 #define G_GRV   G(KC_GRV)
 #define S_COMM  S(KC_COMM)
 #define A_DOT   A(KC_DOT)
@@ -37,5 +36,6 @@
 #define G_SCLN  G(KC_SCLN)
 #define G_QUOT  G(KC_QUOT)
 
+// Config Layer
 #define LDF_QTY DF(_QWERTY)
 #define LDF_CMK DF(_BASE)
