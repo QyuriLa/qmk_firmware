@@ -1,11 +1,13 @@
 #pragma once
 
 // Layer-Tap
-#define L_P_ESC LT(_NUMPAD, KC_ESC)
-#define L_N_TAB LT(_NUMBER, KC_TAB)
 #define L_E_ENT LT(_EXTEND, KC_ENT)
+#define L_N_TAB LT(_NUMBER, KC_TAB)
+#define L_P_ESC LT(_NUMPAD, KC_ESC)
+
 #define L_S_GRV LT(_SWAP,   KC_GRV)
 #define L_S_QUT LT(_SWAP,   KC_QUOT)
+#define L_M_RAL LT(_MODEXT, KC_RALT)
 
 #define LMO_NUM MO(_NUMBER)
 #define LMO_MOD MO(_MODEXT)
