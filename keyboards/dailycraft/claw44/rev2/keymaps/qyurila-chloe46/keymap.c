@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, M_GUI_O, M_ALT_I, M_SFT_E, M_CTL_N, KC_M,    XXXXXXX, _______, KC_G,    M_CTL_T, M_SFT_S, M_ALT_R, M_GUI_A, _______,
     XXXXXXX, KC_SLSH, KC_DOT,  KC_COMM, KC_H,    KC_K,    XXXXXXX, _______, KC_V,    KC_D,    KC_C,    KC_X,    KC_Z,    XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_DEL,  KC_BSPC, KC_SPC,  KC_RALT,                   LMO_MOD, L_E_ENT, L_N_TAB, L_P_ESC
+                      KC_DEL,  KC_BSPC, KC_SPC,  L_M_RAL,                   LMO_MOD, L_E_ENT, L_N_TAB, L_P_ESC
   ),
   [_QWERTY] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
   [_CONFIG] = LAYOUT(
-    RESET,   LDF_QTY, XXXXXXX, XXXXXXX, KC_PWR,  XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    QK_BOOT, LDF_QTY, XXXXXXX, XXXXXXX, KC_PWR,  XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
