@@ -4,6 +4,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case _BASE:
         case _QWERTY:
+        case _NUMBER:
+        case _NUMPAD:
             autoshift_enable();
             break;
         default:
@@ -20,7 +22,11 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     }
 #endif
     switch(keycode) {
+        // Native
         case KC_TAB:
+        case KC_SLSH:
+
+        // Custom
         case KC_2:
         case KC_3:
         case KC_COMM:
@@ -54,9 +60,11 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
-        case KC_DOT : unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_2:    unregister_code16((!shifted) ? KC_2    : KC_COMM); break;
+        case KC_3:    unregister_code16((!shifted) ? KC_3    : KC_DOT ); break;
         case KC_COMM: unregister_code16((!shifted) ? KC_COMM : KC_AT  ); break;
+        case KC_DOT:  unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
+        case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
             // The IS_RETRO check isn't really necessary here, always using
