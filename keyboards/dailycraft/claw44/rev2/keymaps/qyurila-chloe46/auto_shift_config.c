@@ -33,9 +33,8 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case KC_DOT:
         case KC_SCLN:
             return true;
-        default:
-            return false;
     }
+    return false;
 }
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {

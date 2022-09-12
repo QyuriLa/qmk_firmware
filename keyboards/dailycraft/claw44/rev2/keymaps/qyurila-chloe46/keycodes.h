@@ -41,3 +41,22 @@
 // Config Layer
 #define LDF_QTY DF(_QWERTY)
 #define LDF_CMK DF(_BASE)
+
+
+// Custom Keycodes
+enum my_keycodes {
+    // Left hand combos
+    CM_EQL = SAFE_RANGE,
+    CM_MINS,
+    CM_PLUS,
+    CM_PERC,
+    CM_AMPR,
+    CM_ASTR,
+    // Right hand combos
+    CM_COLN,
+    CM_UNDS,
+    CM_HASH,
+    CM_BSLS,
+    CM_PIPE,
+    CM_DLR,
+};
