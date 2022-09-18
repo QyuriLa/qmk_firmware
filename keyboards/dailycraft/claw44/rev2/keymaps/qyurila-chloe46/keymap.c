@@ -117,10 +117,18 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             break;
 
         case 1:  // Left Lower Knob
-            if (clockwise) {
-                tap_code16(C(S(KC_TAB)));
+            if (get_mods() & MOD_MASK_AG) {
+                if (clockwise) {
+                    tap_code16(S(KC_TAB));
+                } else {
+                    tap_code16(KC_TAB);
+                }
             } else {
-                tap_code16(C(KC_TAB));
+                if (clockwise) {
+                    tap_code16(C(S(KC_TAB)));
+                } else {
+                    tap_code16(C(KC_TAB));
+                }
             }
             break;
 
