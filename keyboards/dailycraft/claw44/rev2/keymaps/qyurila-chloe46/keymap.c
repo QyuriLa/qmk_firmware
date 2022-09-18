@@ -25,8 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "auto_shift_config.c"
 #include "keycodes_custom.c"
 
-// Be used to 'space after _NUMBER layer' correction
-static bool is_0_pressed;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
@@ -228,22 +226,5 @@ bool caps_word_press_user(uint16_t keycode) {
 // Main process
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     process_custom_keycodes(keycode, record);
-    switch (keycode) {
-        case KC_0:
-            if (record->event.pressed) {
-                is_0_pressed = true;
-            } else {
-                is_0_pressed = false;
-            }
-            return true;
-        // 'Space after _NUMBER layer' correction
-        case L_N_TAB:
-            // When L_N_TAB released earlier than KC_0, delete last 0 and add space.
-            if (!record->tap.count && !record->event.pressed && is_0_pressed) {
-                tap_code(KC_BSPC);
-                tap_code(KC_SPC);
-            }
-            return true;
-    }
     return true;
 }
