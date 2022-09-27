@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
     L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LTO_GM,  KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
-    KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    XXXXXXX, LMO_CFG, KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    KC_BSPC, KC_Z,    KC_X,    TRP_C,   DBL_D,   KC_V,    XXXXXXX, LMO_CFG, KC_K,    DBL_H,   TRP_CMM, KC_DOT,  KC_SLSH, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)

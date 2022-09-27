@@ -4,23 +4,23 @@ COMB(pw_LBRC,   KC_LBRC,   KC_P,             KC_W   )  // [
 COMB(ly_RBRC,   KC_RBRC,   KC_L,             KC_Y   )  // ]
 COMB(tr_LPRN,   KC_LPRN,   M_CTL_T,          M_ALT_R)  // (
 COMB(ni_RPRN,   KC_RPRN,   M_CTL_N,          M_ALT_I)  // )
-COMB(dx_LCBR,   KC_LCBR,   KC_D,             KC_X   )  // {
-COMB(hD_RCBR,   KC_RCBR,   KC_H,             KC_DOT )  // }
-COMB(dr_LABK,   KC_LABK,   KC_D,             M_ALT_R)  // <
-COMB(hi_RABK,   KC_RABK,   KC_H,             M_ALT_I)  // >
+COMB(dx_LCBR,   KC_LCBR,   DBL_D,            KC_X   )  // {
+COMB(hD_RCBR,   KC_RCBR,   DBL_H,            KC_DOT )  // }
+COMB(dr_LABK,   KC_LABK,   DBL_D,            M_ALT_R)  // <
+COMB(hi_RABK,   KC_RABK,   DBL_H,            M_ALT_I)  // >
 
 COMB(sr_EQL,    CM_EQL,             M_SFT_S, M_ALT_R)  // =
 COMB(ts_MINS,   CM_MINS,   M_CTL_T, M_SFT_S         )  // -
-COMB(ds_PLUS,   CM_PLUS,   KC_D,    M_SFT_S         )  // +
+COMB(ds_PLUS,   CM_PLUS,   DBL_D,   M_SFT_S         )  // +
 COMB(sx_PERC,   CM_PERC,            M_SFT_S, KC_X   )  // %
-COMB(cx_AMPR,   CM_AMPR,            KC_C,    KC_X   )  // &
-COMB(dc_ASTR,   CM_ASTR,   KC_D,    KC_C            )  // *
+COMB(cx_AMPR,   CM_AMPR,            TRP_C,   KC_X   )  // &
+COMB(dc_ASTR,   CM_ASTR,   DBL_D,   TRP_C           )  // *
 
 COMB(ei_COLN,   CM_COLN,            M_SFT_E, M_ALT_I)  // :
 COMB(ne_UNDS,   CM_UNDS,   M_CTL_N, M_SFT_E         )  // _
-COMB(he_HASH,   CM_HASH,   KC_H,    M_SFT_E         )  // #
+COMB(he_HASH,   CM_HASH,   DBL_H,   M_SFT_E         )  // #
 COMB(eD_BSLS,   CM_BSLS,            M_SFT_E, KC_DOT )  // \.
-COMB(CD_PIPE,   CM_PIPE,            KC_COMM, KC_DOT )  // |
-COMB(hC_DLR,    CM_DLR,    KC_H,    KC_COMM         )  // $
+COMB(CD_PIPE,   CM_PIPE,            TRP_CMM, KC_DOT )  // |
+COMB(hC_DLR,    CM_DLR,    DBL_H,   TRP_CMM         )  // $
 
 COMB(gt_SPC,    KC_SPC,    KC_G,    M_CTL_T         )

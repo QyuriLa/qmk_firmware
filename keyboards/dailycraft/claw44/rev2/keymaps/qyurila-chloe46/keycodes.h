@@ -30,6 +30,12 @@
 #define M_ALT_I LALT_T(KC_I)
 #define M_GUI_O LGUI_T(KC_O)
 
+// Double & Triple Mod-Tap
+#define DBL_D   RSFT_T(KC_D)
+#define DBL_H   RSFT_T(KC_H)
+#define TRP_C   RGUI_T(KC_C)
+#define TRP_CMM RGUI_T(KC_COMM)
+
 // ModExt Layer
 #define G_GRV   G(KC_GRV)
 #define S_COMM  S(KC_COMM)

@@ -1,4 +1,5 @@
 #pragma once
+#include "keycodes_custom.c"
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
@@ -29,7 +30,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         // Custom
         case KC_2:
         case KC_3:
-        case KC_COMM:
+        case TRP_CMM:
         case KC_DOT:
         case KC_SCLN:
             return true;
@@ -38,10 +39,35 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 }
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    if (is_double_held || is_triple_held) {
+        static uint16_t kc_shift = KC_NO;
+        switch (keycode) {
+            case KC_DOT:  kc_shift = KC_EXLM; break;
+            case KC_SCLN: kc_shift = KC_CIRC; break;
+            case L_S_GRV: kc_shift = KC_TILD; break;
+            case L_S_QUT: kc_shift = KC_DQT;  break;
+            default:
+                break;
+        }
+        if (kc_shift != KC_NO) {
+            if (shifted) {
+                keycode = kc_shift;
+            }
+            if (is_triple_held) {
+                tap_code16(keycode);
+                tap_code16(keycode);
+            } else if (is_double_held) {
+                tap_code16(keycode);
+            }
+            register_code16(keycode);
+            return;
+        }
+    }
     switch (keycode) {
         case KC_2:    register_code16((!shifted) ? KC_2    : KC_COMM); break;
         case KC_3:    register_code16((!shifted) ? KC_3    : KC_DOT ); break;
-        case KC_COMM: register_code16((!shifted) ? KC_COMM : KC_AT  ); break;
+        case TRP_CMM: register_code16((!shifted) ? KC_COMM : KC_AT  ); break;
+        // Fallback if neither double nor triple not held
         case KC_DOT:  register_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
         case KC_SCLN: register_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         default:
