@@ -19,6 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+bool is_double_held = false;
+bool is_triple_held = false;
+
 #include "layers.h"
 #include "keycodes.h"
 #include "g/keymap_combo.h"
@@ -229,4 +232,14 @@ bool caps_word_press_user(uint16_t keycode) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     process_custom_keycodes(keycode, record);
     return true;
+}
+
+void matrix_scan_user(void) {
+    if (get_mods() & MOD_BIT(KC_RSFT)) {
+        del_mods(MOD_BIT(KC_RSFT));
+        is_double_held = true;
+    } else if (get_mods() & MOD_BIT(KC_RGUI)) {
+        del_mods(MOD_BIT(KC_RGUI));
+        is_triple_held = true;
+    }
 }

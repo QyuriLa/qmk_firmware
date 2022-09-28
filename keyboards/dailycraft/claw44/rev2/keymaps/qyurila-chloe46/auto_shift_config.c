@@ -1,5 +1,4 @@
 #pragma once
-#include "keycodes_custom.c"
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
