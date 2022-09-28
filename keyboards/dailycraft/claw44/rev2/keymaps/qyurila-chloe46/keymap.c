@@ -19,6 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+bool is_spacepunc_tapped = false;
+bool is_space_pressed = false;
+
 #include "layers.h"
 #include "keycodes.h"
 #include "keycodes_custom.c"
@@ -245,6 +248,21 @@ bool caps_word_press_user(uint16_t keycode) {
 
 // Main process
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_SPC:
+            if (record->event.pressed) {
+                is_space_pressed = true;
+            } else {
+                is_space_pressed = false;
+                if (!is_spacepunc_tapped) {
+                    return true;
+                }
+                is_spacepunc_tapped = false;
+                unregister_code16(KC_SPC);
+                tap_code(KC_SPC);
+                return false;
+            }
+    }
     process_custom_keycodes(keycode, record);
     return true;
 }

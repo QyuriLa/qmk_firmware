@@ -8,6 +8,9 @@ void process_double_triple(uint16_t target, bool is_custom) {
         tap_code16(target);
     }
     if (is_custom) {
+        if (is_space_pressed) {
+            is_spacepunc_tapped = true;
+        }
         tap_code16(target);
     }
 }
