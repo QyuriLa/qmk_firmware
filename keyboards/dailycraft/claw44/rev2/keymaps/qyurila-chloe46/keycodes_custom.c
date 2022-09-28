@@ -1,10 +1,10 @@
 #pragma once
 
 void process_double_triple(uint16_t target, bool is_custom) {
-    if (is_double_held){
+    if (IS_LAYER_ON(_TRIPLE)){
         tap_code16(target);
-    } else if (is_triple_held) {
         tap_code16(target);
+    } else if (IS_LAYER_ON(_DOUBLE)) {
         tap_code16(target);
     }
     if (is_custom) {
@@ -15,6 +15,7 @@ void process_double_triple(uint16_t target, bool is_custom) {
 void process_custom_keycodes(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
+            // Double / Triple Keys
             // NOTE: Auto Shifted keys are handled in autoshift_press_user()
             // Left hand puncs
             case CM_EQL:  process_double_triple(KC_EQL,  true);  break;
@@ -32,17 +33,10 @@ void process_custom_keycodes(uint16_t keycode, keyrecord_t *record) {
             case CM_DLR:  process_double_triple(KC_DLR,  true);  break;
             // etc.
             case KC_BSPC: process_double_triple(KC_BSPC, false); break;
-        }
-    } else {
-        switch (keycode) {
-            case DBL_D:
-            case DBL_H:
-                is_double_held = false;
-                break;
-            case TRP_C:
-            case TRP_CMM:
-                is_triple_held = false;
-                break;
+            case KC_DEL:  process_double_triple(KC_DEL,  false); break;
+            case L_N_TAB: process_double_triple(KC_TAB,  false); break;
+            case L_E_ENT: process_double_triple(KC_ENT,  false); break;
+            case KC_SPC:  process_double_triple(KC_SPC,  false); break;
         }
     }
     return;

@@ -11,4 +11,6 @@ enum layers {
     _NUMPAD,
     _MODEXT,
     _CONFIG,
+    _DOUBLE,
+    _TRIPLE,
 };

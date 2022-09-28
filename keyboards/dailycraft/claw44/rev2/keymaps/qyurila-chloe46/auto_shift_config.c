@@ -6,6 +6,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case _QWERTY:
         case _NUMBER:
         case _NUMPAD:
+        case _DOUBLE:
+        case _TRIPLE:
             autoshift_enable();
             break;
         default:
@@ -25,7 +27,6 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         // Native
         case KC_TAB:
         case KC_SLSH:
-
         // Custom
         case KC_2:
         case KC_3:
@@ -38,10 +39,11 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 }
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
-    if (is_double_held || is_triple_held) {
-        static uint16_t kc_shift = KC_NO;
+    if (IS_LAYER_ON(_DOUBLE) || IS_LAYER_ON(_TRIPLE)) {
+        uint16_t kc_shift = KC_NO;
         switch (keycode) {
             case KC_DOT:  kc_shift = KC_EXLM; break;
+            case KC_SLSH: kc_shift = KC_QUES; break;
             case KC_SCLN: kc_shift = KC_CIRC; break;
             case L_S_GRV: kc_shift = KC_TILD; break;
             case L_S_QUT: kc_shift = KC_DQT;  break;
@@ -52,12 +54,10 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             if (shifted) {
                 keycode = kc_shift;
             }
-            if (is_triple_held) {
-                tap_code16(keycode);
-                tap_code16(keycode);
-            } else if (is_double_held) {
+            if (IS_LAYER_ON(_TRIPLE)) {
                 tap_code16(keycode);
             }
+            tap_code16(keycode);
             register_code16(keycode);
             return;
         }

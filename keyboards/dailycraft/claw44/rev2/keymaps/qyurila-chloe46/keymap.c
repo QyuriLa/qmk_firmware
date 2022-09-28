@@ -19,14 +19,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-bool is_double_held = false;
-bool is_triple_held = false;
-
 #include "layers.h"
 #include "keycodes.h"
+#include "keycodes_custom.c"
 #include "g/keymap_combo.h"
 #include "auto_shift_config.c"
-#include "keycodes_custom.c"
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -86,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_0,    KC_6,    KC_5,    KC_4,    KC_DOT,  XXXXXXX, _______, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX,
     XXXXXXX, _______, KC_3,    KC_2,    KC_1,    _______, XXXXXXX, _______, KC_PEQL, KC_P1,   KC_P2,   KC_P3,   KC_PENT, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      _______, _______, _______, _______,                    _______, KC_P0,   KC_PDOT, _______
+                      _______, _______, _______, _______,                   _______, KC_P0,   KC_PDOT, _______
   ),
 
   [_MODEXT] = LAYOUT(
@@ -102,6 +99,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  ),
+  [_DOUBLE] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      _______, _______, _______, _______,                   _______, _______, _______, _______
+  ),
+  [_TRIPLE] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
+                      _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
 };
 
@@ -146,6 +157,10 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_P_ESC:
         case L_N_TAB:
+        case DBL_D:
+        case DBL_H:
+        case TRP_C:
+        case TRP_CMM:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -232,14 +247,4 @@ bool caps_word_press_user(uint16_t keycode) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     process_custom_keycodes(keycode, record);
     return true;
-}
-
-void matrix_scan_user(void) {
-    if (get_mods() & MOD_BIT(KC_RSFT)) {
-        del_mods(MOD_BIT(KC_RSFT));
-        is_double_held = true;
-    } else if (get_mods() & MOD_BIT(KC_RGUI)) {
-        del_mods(MOD_BIT(KC_RGUI));
-        is_triple_held = true;
-    }
 }
