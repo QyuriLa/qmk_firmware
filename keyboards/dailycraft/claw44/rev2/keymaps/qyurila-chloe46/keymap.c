@@ -212,6 +212,8 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case _QWERTY:
         case _NUMBER:
         case _NUMPAD:
+        case _DOUBLE:
+        case _TRIPLE:
             return true;
 
         default:
