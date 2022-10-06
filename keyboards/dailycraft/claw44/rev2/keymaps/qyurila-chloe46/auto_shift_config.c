@@ -86,7 +86,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
     switch (keycode) {
         case KC_2:    unregister_code16((!shifted) ? KC_2    : KC_COMM); break;
         case KC_3:    unregister_code16((!shifted) ? KC_3    : KC_DOT ); break;
-        case KC_COMM: unregister_code16((!shifted) ? KC_COMM : KC_AT  ); break;
+        case TRP_CMM: unregister_code16((!shifted) ? KC_COMM : KC_AT  ); break;
         case KC_DOT:  unregister_code16((!shifted) ? KC_DOT  : KC_EXLM); break;
         case KC_SCLN: unregister_code16((!shifted) ? KC_SCLN : KC_CIRC); break;
         default:
