@@ -9,15 +9,16 @@
 #define L_S_QUT LT(_SWAP,   KC_QUOT)
 #define L_M_RAL LT(_MODEXT, KC_RALT)
 
+#define LMO_EXT TG(_EXTEND)
 #define LMO_NUM MO(_NUMBER)
 #define LMO_MOD MO(_MODEXT)
 #define LMO_CFG MO(_CONFIG)
-#define LTG_EXT TG(_EXTEND)
 
 // Layer Toggle
 #define LTO_BS  TO(_BASE)
 #define LTO_GM  TO(_GAME)
 #define LTO_ARW TO(_ARROW)
+#define LTG_EXT TG(_EXTEND)
 #define LTG_NPD TG(_NUMPAD)
 #define LTG_LCK TG(_LOCK)
 

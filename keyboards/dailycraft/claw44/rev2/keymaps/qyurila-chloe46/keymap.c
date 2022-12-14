@@ -57,14 +57,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
     KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_SPC,  KC_ENT,  LMO_NUM, KC_RALT
+                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    LMO_EXT, KC_P0,   LMO_NUM, KC_RALT
   ),
   [_ARROW] = LAYOUT(
     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_UP,   KC_O,    KC_P,    KC_BSPC,
     KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_LEFT, KC_DOWN, KC_RGHT, KC_SCLN, KC_RSFT,
     KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_SPC,  KC_ENT,  LMO_NUM, KC_RALT
+                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    LMO_EXT, KC_P0,   LMO_NUM, KC_RALT
   ),
 
   [_EXTEND] = LAYOUT(  // TODO: replace Linux ZXCV to some other useful keys
