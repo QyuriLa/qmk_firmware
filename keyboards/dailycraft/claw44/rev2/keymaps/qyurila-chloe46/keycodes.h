@@ -17,7 +17,7 @@
 // Layer Toggle
 #define LTO_BS  TO(_BASE)
 #define LTO_GM  TO(_GAME)
-#define LTG_ARW TG(_ARROW)
+#define LTO_ARW TO(_ARROW)
 #define LTG_NPD TG(_NUMPAD)
 #define LTG_LCK TG(_LOCK)
 
