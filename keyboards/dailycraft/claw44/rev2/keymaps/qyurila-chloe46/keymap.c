@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
     L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LTO_GM,  KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
-    KC_BSPC, KC_Z,    KC_X,    TRP_C,   DBL_D,   KC_V,    XXXXXXX, LMO_CFG, KC_K,    DBL_H,   TRP_CMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    LTG_EXT, KC_Z,    KC_X,    TRP_C,   DBL_D,   KC_V,    XXXXXXX, LMO_CFG, KC_K,    DBL_H,   TRP_CMM, KC_DOT,  KC_SLSH, LTG_EXT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
   ),                                                                     // =HANGUL (KC_LNG1)
@@ -68,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_EXTEND] = LAYOUT(
-    XXXXXXX, KC_AGIN, KC_CUT,  KC_COPY, KC_UNDO, KC_PSTE,                   KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_PERC, KC_NUM,
-    KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, C(KC_T), XXXXXXX, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_GRV , KC_SCRL,
-    XXXXXXX, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_APP,  KC_PAUS,
+    KC_DEL,  KC_AGIN, KC_CUT,  KC_COPY, KC_UNDO, KC_PSTE,                   KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_PERC, KC_NUM,
+    KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_SPC,  XXXXXXX, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_GRV , KC_SCRL,
+    _______, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_APP,  _______,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_RCTL, _______, _______, _______
+                      L_P_ESC, L_N_TAB, KC_ENT,  XXXXXXX,                   KC_RCTL, _______, _______, _______
   ),                                                                     // = HANGA (KC_LNG2)
   [_NUMBER] = LAYOUT(
     XXXXXXX, KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______,                   _______, KC_7,    KC_8,    KC_9,    _______, XXXXXXX,

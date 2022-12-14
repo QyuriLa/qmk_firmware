@@ -12,6 +12,7 @@
 #define LMO_NUM MO(_NUMBER)
 #define LMO_MOD MO(_MODEXT)
 #define LMO_CFG MO(_CONFIG)
+#define LTG_EXT TG(_EXTEND)
 
 // Layer Toggle
 #define LTO_BS  TO(_BASE)
