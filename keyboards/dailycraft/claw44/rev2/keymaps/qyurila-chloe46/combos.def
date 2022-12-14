@@ -8,6 +8,9 @@ COMB(dx_LCBR,   KC_LCBR,   DBL_D,            KC_X   )  // {
 COMB(hD_RCBR,   KC_RCBR,   DBL_H,            KC_DOT )  // }
 COMB(dr_LABK,   KC_LABK,   DBL_D,            M_ALT_R)  // <
 COMB(hi_RABK,   KC_RABK,   DBL_H,            M_ALT_I)  // >
+// Extra angle brackets for easier typing of <= and |>
+COMB(tx_LABK,   KC_LABK,   KC_T,             KC_X   )  // <
+COMB(hi_RABK,   KC_RABK,   KC_N,             KC_DOT )  // >
 
 COMB(sr_EQL,    CM_EQL,             M_SFT_S, M_ALT_R)  // =
 COMB(ts_MINS,   CM_MINS,   M_CTL_T, M_SFT_S         )  // -
