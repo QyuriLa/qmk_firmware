@@ -132,11 +132,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             break;
 
         case 1:  // Left Lower Knob
-            if (get_mods() & MOD_MASK_AG) {
+            if (IS_LAYER_ON(_EXTEND)) {
                 if (clockwise) {
-                    tap_code16(S(KC_TAB));
+                    tap_code16(A(KC_TAB));
                 } else {
-                    tap_code16(KC_TAB);
+                    tap_code16(A(S(KC_TAB)));
+                }
+            } else if (IS_LAYER_ON(_MODEXT)) {
+                if (clockwise) {
+                    tap_code16(G(KC_TAB));
+                } else {
+                    tap_code16(G(S(KC_TAB)));
                 }
             } else {
                 if (clockwise) {
