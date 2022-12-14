@@ -67,10 +67,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    KC_SPC,  KC_ENT,  LMO_NUM, KC_RALT
   ),
 
-  [_EXTEND] = LAYOUT(  // TODO: replace Linux zxcv to some other useful keys
-    KC_DEL,  KC_AGIN, KC_CUT,  KC_COPY, KC_UNDO, KC_PSTE,                   KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_PERC, KC_NUM,
-    KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_SPC,  XXXXXXX, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_GRV , KC_SCRL,
-    _______, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_CAPS, KC_INS,  KC_APP,  _______,
+  [_EXTEND] = LAYOUT(  // TODO: replace Linux ZXCV to some other useful keys
+    KC_DEL,  KC_AGIN, KC_CUT,  KC_COPY, KC_UNDO, KC_PSTE,                   KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_CIRC, KC_NUM,
+    KC_MEH,  KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_SPC,  XXXXXXX, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_GRV,  KC_CAPS,
+    _______, C(KC_Y), C(KC_X), C(KC_C), C(KC_Z), C(KC_V), XXXXXXX, _______, KC_PSCR, CAPSWRD, KC_APP,  KC_INS,  KC_APP,  KC_SCRL,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, KC_ENT,  XXXXXXX,                   KC_RCTL, _______, _______, _______
   ),                                                                     // = HANGA (KC_LNG2)
