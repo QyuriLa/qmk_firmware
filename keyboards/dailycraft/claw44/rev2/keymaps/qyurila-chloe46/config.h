@@ -32,7 +32,7 @@
 // #define MOUSEKEY_INTERVAL 16
 // #define MOUSEKEY_MAX_SPEED 8
 #define CAPS_WORD_IDLE_TIMEOUT 5000
-#define TAP_CODE_DELAY 10
+#define TAP_CODE_DELAY 20
 
 // Squeezing
 // #define LAYER_STATE_8BIT
