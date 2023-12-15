@@ -39,7 +39,7 @@ jobs:
       run: qmk mass-compile -j $(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || getconf _NPROCESSORS_ONLN 2>/dev/null) -km ${{ matrix.keymap }} -f 'keyboard_folder=${{ matrix.keyboard_folder }}*'
 
     - name: 'Upload binaries'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: binaries-${{ matrix.keyboard_folder }}-${{ matrix.keymap }}
         if-no-files-found: ignore
