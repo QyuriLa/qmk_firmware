@@ -97,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
   [_CONFIG] = LAYOUT(
-    QK_BOOT, LDF_QTY, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_SLEP, LTO_ARW, XXXXXXX, XXXXXXX, XXXXXXX, LTO_GM,  XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_PWR,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    QK_BOOT, LDF_QTY, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, LDF_QTY, XXXXXXX,
+    KC_SLEP, LTO_ARW, KC_ASON, KC_ASTG, XXXXXXX, LTO_GM,  XXXXXXX, _______, LTO_GM,  XXXXXXX, KC_ASTG, KC_ASON, LTO_ARW, XXXXXXX,
+    KC_PWR,  XXXXXXX, CMB_ON,  CMB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CMB_TOG, CMB_ON,  XXXXXXX, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
