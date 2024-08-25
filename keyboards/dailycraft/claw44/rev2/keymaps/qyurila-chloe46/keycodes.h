@@ -22,6 +22,9 @@
 #define LTG_NPD TG(_NUMPAD)
 #define LTG_LCK TG(_LOCK)
 
+// Layer Tap Dance
+#define TD_CFG TD(LAYER_GAME_ARROW_CONFIG)
+
 // Home Row Mod-Tap
 #define M_GUI_A LGUI_T(KC_A)
 #define M_ALT_R LALT_T(KC_R)

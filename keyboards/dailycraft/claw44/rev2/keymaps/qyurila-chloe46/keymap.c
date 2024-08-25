@@ -23,16 +23,16 @@ bool is_spacepunc_tapped = false;
 bool is_space_pressed = false;
 
 #include "layers.h"
+#include "tap_dance.h"
 #include "keycodes.h"
 #include "keycodes_custom.c"
 #include "g/keymap_combo.h"
 #include "auto_shift_config.c"
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
-    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LMO_CFG, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
+    L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, TD_CFG,  KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
     LTG_EXT, KC_Z,    KC_X,    TRP_C,   DBL_D,   KC_V,    XXXXXXX, LTO_BS,  KC_K,    DBL_H,   TRP_CMM, KC_DOT,  KC_SLSH, LTG_EXT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_QWERTY] = LAYOUT(
     KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LMO_CFG, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, TD_CFG,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     LTG_EXT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_BS,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LTG_EXT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
@@ -229,6 +229,59 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 #endif
 
 
+// Tap Dance
+// Determine the current tap dance state
+td_state_t cur_dance(qk_tap_dance_state_t *state) {
+    if (state->count == 1) {
+        if (!state->pressed) {
+            return TD_SINGLE_TAP;
+        } else {
+            return TD_SINGLE_HOLD;
+        }
+    }
+    if (state->count == 2) {
+        return TD_DOUBLE_TAP;
+    }
+    return TD_UNKNOWN;
+}
+
+// Initialize tap structure associated with example tap dance key
+static td_tap_t ql_tap_state = {
+    .is_press_action = true,
+    .state = TD_NONE
+};
+
+// Functions that control what our tap dance key does
+void ql_finished(qk_tap_dance_state_t *state, void *user_data) {
+    ql_tap_state.state = cur_dance(state);
+    switch (ql_tap_state.state) {
+        case TD_SINGLE_TAP:
+            layer_move(_GAME);
+            break;
+        case TD_SINGLE_HOLD:
+            layer_on(_CONFIG);
+            break;
+        case TD_DOUBLE_TAP:
+            layer_move(_ARROW);
+            break;
+        default:
+            break;
+    }
+}
+
+void ql_reset(qk_tap_dance_state_t *state, void *user_data) {
+    // If the key was held down and now is released then switch off the layer
+    if (ql_tap_state.state == TD_SINGLE_HOLD) {
+        layer_off(_CONFIG);
+    }
+    ql_tap_state.state = TD_NONE;
+}
+
+// Associate our tap dance key with its functionality
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [LAYER_GAME_ARROW_CONFIG] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
+};
+
 // Caps Word
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
@@ -253,6 +306,7 @@ bool caps_word_press_user(uint16_t keycode) {
             return false;  // Deactivate Caps Word.
     }
 }
+
 
 // Main process
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
