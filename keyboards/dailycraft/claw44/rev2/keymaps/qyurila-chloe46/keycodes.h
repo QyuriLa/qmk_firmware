@@ -9,7 +9,7 @@
 #define L_S_QUT LT(_SWAP,   KC_QUOT)
 #define L_M_RAL LT(_MODEXT, KC_RALT)
 
-#define LMO_EXT TG(_EXTEND)
+#define LMO_EXT MO(_EXTEND)
 #define LMO_NUM MO(_NUMBER)
 #define LMO_MOD MO(_MODEXT)
 #define LMO_CFG MO(_CONFIG)

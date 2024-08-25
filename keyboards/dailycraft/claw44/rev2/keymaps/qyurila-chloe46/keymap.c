@@ -31,7 +31,7 @@ bool is_space_pressed = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-    KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, XXXXXXX,
+    KC_DEL,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
     L_S_GRV, M_GUI_A, M_ALT_R, M_SFT_S, M_CTL_T, KC_G,    XXXXXXX, LMO_CFG, KC_M,    M_CTL_N, M_SFT_E, M_ALT_I, M_GUI_O, L_S_QUT,
     LTG_EXT, KC_Z,    KC_X,    TRP_C,   DBL_D,   KC_V,    XXXXXXX, LTO_BS,  KC_K,    DBL_H,   TRP_CMM, KC_DOT,  KC_SLSH, LTG_EXT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
@@ -45,26 +45,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_DEL,  KC_BSPC, KC_SPC,  L_M_RAL,                   LMO_MOD, L_E_ENT, L_N_TAB, L_P_ESC
   ),
   [_QWERTY] = LAYOUT(
-    KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX,
+    KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    XXXXXXX, LMO_CFG, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    LTG_EXT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_BS,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
+    LTG_EXT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX, LTO_BS,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LTG_EXT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       L_P_ESC, L_N_TAB, L_E_ENT, LMO_MOD,                   L_M_RAL, KC_SPC,  KC_BSPC, KC_DEL
   ),
 
   [_GAME] = LAYOUT(
-    KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
-    KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
+    KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_RSFT,
+    KC_LCTL, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RCTL,
+    KC_TAB,  KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    LMO_EXT, KC_P0,   LMO_NUM, KC_RALT
+                      KC_LALT, KC_LSFT, KC_SPC,  LMO_NUM,                   LMO_EXT, KC_ENT,  KC_BSPC, KC_DEL
   ),
   [_ARROW] = LAYOUT(
-    KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_UP,   KC_O,    KC_P,    KC_BSPC,
-    KC_LSFT, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_LEFT, KC_DOWN, KC_RGHT, KC_SCLN, KC_RSFT,
-    KC_LCTL, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
+    KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                      KC_Y,    KC_U,    KC_UP,   KC_O,    KC_P,    KC_RSFT,
+    KC_LCTL, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX, _______, KC_H,    KC_LEFT, KC_DOWN, KC_RGHT, KC_SCLN, KC_RCTL,
+    KC_TAB,  KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,    XXXXXXX, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
-                      KC_LALT, KC_TAB,  KC_SPC,  KC_ENT,                    LMO_EXT, KC_ENT,  LMO_NUM, KC_RALT
+                      KC_LALT, KC_LSFT, KC_SPC,  LMO_NUM,                   LMO_EXT, KC_ENT,  KC_BSPC, KC_DEL
   ),
 
   [_EXTEND] = LAYOUT(  // TODO: replace Linux ZXCV to some other useful keys
@@ -97,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______, _______,                   _______, _______, _______, _______
   ),
   [_CONFIG] = LAYOUT(
-    QK_BOOT, LDF_QTY, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, LDF_QTY, XXXXXXX,
-    KC_SLEP, LTO_ARW, KC_ASON, KC_ASTG, XXXXXXX, LTO_GM,  XXXXXXX, _______, LTO_GM,  XXXXXXX, KC_ASTG, KC_ASON, LTO_ARW, XXXXXXX,
-    KC_PWR,  XXXXXXX, CMB_ON,  CMB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CMB_TOG, CMB_ON,  XXXXXXX, XXXXXXX,
+    QK_BOOT, LDF_QTY, LDF_CMK, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, LDF_CMK, LDF_QTY, QK_BOOT,
+    XXXXXXX, LTO_ARW, KC_ASON, KC_ASOFF,XXXXXXX, LTO_GM,  XXXXXXX, _______, LTO_GM,  XXXXXXX, KC_ASOFF,KC_ASON, LTO_ARW, XXXXXXX,
+    XXXXXXX, XXXXXXX, CMB_ON,  CMB_OFF, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CMB_OFF, CMB_ON,  XXXXXXX, XXXXXXX,
   //--------+--------+--------+--------+--------+--------|--------+--------|--------+--------+--------+--------+--------+--------
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   ),
